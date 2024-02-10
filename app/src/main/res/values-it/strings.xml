@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">Ice Enberg</string>
+
+    <string name="add">Aggiungere</string>
+    <string name="edit">Modificare</string>
+    <string name="cancel">Annulla</string>
+    <string name="delete">Eliminare</string>
+</resources>

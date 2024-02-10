@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Ice Enberg</string>
+
+    <string name="add">Add</string>
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
 </resources>
