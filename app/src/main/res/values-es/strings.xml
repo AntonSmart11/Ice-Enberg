@@ -6,4 +6,20 @@
     <string name="edit">Editar</string>
     <string name="cancel">Cancelar</string>
     <string name="delete">Eliminar</string>
+
+    <string name="language">Idiomas</string>
+    <string name="sign_out">Desconectarse</string>
+
+    //Página principal administrador
+    <string name="main_admin_title">Panel de Control</string>
+    <string name="main_admin_welcome">Herramientas del Administrador</string>
+    <string name="main_admin_services">Servicios</string>
+    <string name="main_admin_maintenance">Mantenimiento</string>
+    <string name="main_admin_installation">Instalación</string>
+    <string name="main_admin_revision">Revisión</string>
+    <string name="main_admin_location">Localización</string>
+    <string name="navigation_drawer_open">abrir</string>
+    <string name="navigation_drawer_close">cerrar</string>
+
+
 </resources>
