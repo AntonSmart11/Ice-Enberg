@@ -13,6 +13,12 @@
         android:theme="@style/Theme.IceEnberg"
         tools:targetApi="31">
         <activity
+            android:name=".mantenimiento.FormMantenimientoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mantenimiento.MantenimientoActivity"
+            android:exported="false" />
+        <activity
             android:name=".instalacion.FormInstalacionActivity"
             android:exported="false" />
         <activity
