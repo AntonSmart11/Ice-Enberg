@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="Nuevo mantenimiento"/>
+            app:title="@string/main_form_maintenance_title"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:hint="Nombre del mantenimiento"
+                    android:hint="@string/main_form_maintenance_hint_name"
                     android:inputType="text"/>
 
                 <EditText
@@ -62,7 +62,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:hint="Costo del mantenimiento"
+                    android:hint="@string/main_form_maintenance_hint_cost"
                     android:inputType="number"/>
 
                 <LinearLayout
@@ -79,7 +79,7 @@
                         android:layout_marginHorizontal="10dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/primary"
-                        android:text="Guardar"
+                        android:text="@string/add"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
@@ -90,7 +90,7 @@
                         android:layout_marginHorizontal="10dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/secondary"
-                        android:text="Cancelar"
+                        android:text="@string/cancel"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
                 </LinearLayout>

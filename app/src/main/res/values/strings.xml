@@ -20,4 +20,21 @@
     <string name="main_admin_installation">Installation</string>
     <string name="main_admin_revision">Revision</string>
     <string name="main_admin_location">Location</string>
+
+    //Página Principal mantenimientos
+    <string name="main_maintenance_title">Maintenance</string>
+
+    //Página formulario mantenimientos
+    <string name="main_form_maintenance_title">New maintenance</string>
+    <string name="main_form_maintenance_hint_name">Maintenance name</string>
+    <string name="main_form_maintenance_hint_cost">Maintenance cost</string>
+
+    //Página Principal revisiones
+    <string name="main_revision_title">Revisions</string>
+
+    //Página formulario revisiones
+    <string name="main_form_revision_title">New revision</string>
+    <string name="main_form_revision_hint_name">Revision name</string>
+    <string name="main_form_revision_hint_cost">Revision cost</string>
+
 </resources>

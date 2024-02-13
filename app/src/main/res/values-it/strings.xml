@@ -21,4 +21,21 @@
     <string name="navigation_drawer_open">aprire</string>
     <string name="navigation_drawer_close">vicino</string>
 
+
+    //Página Principal mantenimientos
+    <string name="main_maintenance_title">Manutenzioni</string>
+
+    //Página formulario mantenimientos
+    <string name="main_form_maintenance_title">Nuova Manutenzione</string>
+    <string name="main_form_maintenance_hint_name">Nome della manutenzione</string>
+    <string name="main_form_maintenance_hint_cost">Costo della manutenzione</string>
+
+    //Página Principal revisiones
+    <string name="main_revision_title"> Revisioni</string>
+
+    //Página formulario revisiones
+    <string name="main_form_revision_title">Nuova revisione</string>
+    <string name="main_form_revision_hint_name">Nome della revisione</string>
+    <string name="main_form_revision_hint_cost"> Costo della revisione</string>
+
 </resources>
