@@ -1,5 +1,6 @@
 package com.antonsmart.iceenberg.Database
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -138,4 +139,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     //Functions
 
+    //Mantenimientos
+    fun insertMaintenance(name: String, cost: Double) :Boolean{
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_MAINTENANCE,name)
+        values.put(PRICE_MAINTENANCE,cost)
+        val result = db.insert(TABLE_MAINTENANCE, null, values)
+
+
+        //Regresar si fue exitosa o no la inserción
+        return result != -1L
+    }
 }
