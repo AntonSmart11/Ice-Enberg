@@ -10,6 +10,11 @@
     <string name="language">Le lingue</string>
     <string name="sign_out">Disconnettersi</string>
 
+    <string name="successInsert">Inserimento riuscito</string>
+    <string name="errorInsert">Errore nell\'inserimento dei dati</string>
+
+    <string name="empty">Campi vuoti</string>
+
     //Página principal administrador
     <string name="main_admin_title">Pannello di Controllo</string>
     <string name="main_admin_welcome">Strumenti di Amministratore</string>
@@ -37,5 +42,14 @@
     <string name="main_form_revision_title">Nuova revisione</string>
     <string name="main_form_revision_hint_name">Nome della revisione</string>
     <string name="main_form_revision_hint_cost"> Costo della revisione</string>
+
+    //Página Principal localizaciones
+    <string name="main_location_title">Posizione</string>
+
+    //Página formulario localizaciones
+    <string name="main_form_location_title">Nuova sede</string>
+    <string name="main_form_location_hint_name">Nome del luogo</string>
+    <string name="main_form_location_hint_percentage">Percentuale deducibile</string>
+    <string name="main_form_location_error_percentage">Il numero deve essere compreso tra 1 e 100</string>
 
 </resources>

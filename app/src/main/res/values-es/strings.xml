@@ -10,6 +10,11 @@
     <string name="language">Idiomas</string>
     <string name="sign_out">Desconectarse</string>
 
+    <string name="successInsert">Inserción exitosa</string>
+    <string name="errorInsert">Error al insertar datos</string>
+
+    <string name="empty">Campos vacíos</string>
+
     //Página principal administrador
     <string name="main_admin_title">Panel de Control</string>
     <string name="main_admin_welcome">Herramientas del Administrador</string>
@@ -37,5 +42,13 @@
     <string name="main_form_revision_hint_name">Nombre de la revisión</string>
     <string name="main_form_revision_hint_cost">Costo de la revisión</string>
 
+    //Página Principal localizaciones
+    <string name="main_location_title">Localización</string>
+
+    //Página formulario localizaciones
+    <string name="main_form_location_title">Nueva localización</string>
+    <string name="main_form_location_hint_name">Nombre de la localización</string>
+    <string name="main_form_location_hint_percentage">Porcentaje deducible</string>
+    <string name="main_form_location_error_percentage">El número tiene que estar entre 1 y 100</string>
 
 </resources>
