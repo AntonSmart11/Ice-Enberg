@@ -18,7 +18,7 @@ class MantenimientoActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarMantenimientos)
 
         supportActionBar?.apply {
-            title = "Mantenimientos"
+            title = getString(R.string.main_maintenance_title)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }

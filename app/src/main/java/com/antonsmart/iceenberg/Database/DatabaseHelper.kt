@@ -1,9 +1,13 @@
 package com.antonsmart.iceenberg.Database
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.health.connect.datatypes.units.Percentage
+import com.antonsmart.iceenberg.Objects.Location
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -150,5 +154,40 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         //Regresar si fue exitosa o no la inserción
         return result != -1L
+    }
+
+    //Localizaciones
+    fun insertLocations(name: String, percentage: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_LOCATIONS, name)
+        values.put(PERCENTAGE_LOCATIONS, percentage)
+        val result = db.insert(TABLE_LOCATIONS, null, values)
+
+        return result != -1L
+    }
+
+    @SuppressLint("Range")
+    fun getLocations() : List<Location> {
+        val locations = mutableListOf<Location>()
+        val db = this.readableDatabase
+
+        val query = "SELECT * FROM $TABLE_LOCATIONS"
+        val cursor: Cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(ID_LOCATIONS))
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+                val porcentaje = cursor.getInt(cursor.getColumnIndex(PERCENTAGE_LOCATIONS))
+
+                locations.add(Location(id, nombre, porcentaje))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return locations
     }
 }

@@ -7,6 +7,7 @@ import android.os.Handler
 import android.widget.Toast
 import com.antonsmart.iceenberg.Controllers.MaintenanceController
 import com.antonsmart.iceenberg.Database.DatabaseHelper
+import com.antonsmart.iceenberg.R
 import com.antonsmart.iceenberg.databinding.ActivityFormMantenimientoBinding
 
 class FormMantenimientoActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class FormMantenimientoActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarFormMantenimientos)
 
         supportActionBar?.apply {
-            title = "Nuevo mantenimiento"
+            title = getString(R.string.main_form_location_title)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
@@ -39,28 +40,37 @@ class FormMantenimientoActivity : AppCompatActivity() {
 
         //Declarar las variables a usar
         var nameMaintenance: String;
-        var costMaintenance: Double;
+        var costMaintenance: String;
+        var costMaintenanceNum: Double;
 
         //Tomar los datos del usuario
         binding.btnEdit.setOnClickListener {
             nameMaintenance = binding.nombreMantenimiento.text.toString()
-            costMaintenance = binding.costoMantenimiento.text.toString().toDouble()
+            costMaintenance = binding.costoMantenimiento.text.toString()
 
-            //Insertar datos a la BD
-            val exitoso = maintenanceController.insertMaintenance(nameMaintenance, costMaintenance);
+            if (nameMaintenance.isNotEmpty() && costMaintenance.isNotEmpty()) {
+                costMaintenanceNum = costMaintenance.toDouble()
 
-            if (exitoso) {
-                Toast.makeText(this, "Inserción exitosa", Toast.LENGTH_SHORT).show()
+                //Insertar datos a la BD
+                val exitoso = maintenanceController.insertMaintenance(nameMaintenance, costMaintenanceNum);
 
-                val handler = Handler()
-                val runnable = Runnable {
-                    onBackPressed()
+                if (exitoso) {
+                    Toast.makeText(this, getString(R.string.successInsert), Toast.LENGTH_SHORT).show()
+
+                    val handler = Handler()
+                    val runnable = Runnable {
+                        onBackPressed()
+                    }
+
+                    handler.postDelayed(runnable, 150) // 3 segundos de retraso
+                } else {
+                    Toast.makeText(this, getString(R.string.errorInsert), Toast.LENGTH_SHORT).show()
                 }
-
-                handler.postDelayed(runnable, 150) // 3 segundos de retraso
             } else {
-                Toast.makeText(this, "Error al insertar datos", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.empty), Toast.LENGTH_SHORT).show()
             }
+
+
         }
     }
 }

@@ -12,6 +12,11 @@
     <string name="navigation_drawer_open">open</string>
     <string name="navigation_drawer_close">close</string>
 
+    <string name="successInsert">Successful insertion</string>
+    <string name="errorInsert">Error inserting data</string>
+
+    <string name="empty">Empty fields</string>
+
     //Página principal administrador
     <string name="main_admin_title">Control Panel</string>
     <string name="main_admin_welcome">Administrator Tools</string>
@@ -36,5 +41,15 @@
     <string name="main_form_revision_title">New revision</string>
     <string name="main_form_revision_hint_name">Revision name</string>
     <string name="main_form_revision_hint_cost">Revision cost</string>
+
+    //Página Principal localizaciones
+    <string name="main_location_title">Location</string>
+
+    //Página formulario localizaciones
+    <string name="main_form_location_title">New location</string>
+    <string name="main_form_location_hint_name">Location name</string>
+    <string name="main_form_location_hint_percentage">Deductible percentage</string>
+    <string name="main_form_location_error_percentage">The number must be between 1 and 100</string>
+
 
 </resources>
