@@ -35,6 +35,15 @@
     <string name="main_form_maintenance_hint_name">Nome della manutenzione</string>
     <string name="main_form_maintenance_hint_cost">Costo della manutenzione</string>
 
+    //Página Principal instalacion
+    <string name="main_installation_title">Facilità</string>
+
+    //Página formulario instalacion
+    <string name="main_form_installation_title">Nuova facilità</string>
+    <string name="main_form_installation_title_edit">Modifica facilità</string>
+    <string name="main_form_installation_hint_name">Nome della facilità</string>
+    <string name="main_form_installation_hint_cost">Costo dela facilità</string>
+
     //Página Principal revisiones
     <string name="main_revision_title"> Revisioni</string>
 
