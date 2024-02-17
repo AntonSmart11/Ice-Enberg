@@ -3,9 +3,11 @@ package com.antonsmart.iceenberg.localizacion
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.widget.Toast
 import com.antonsmart.iceenberg.Controllers.LocationController
 import com.antonsmart.iceenberg.Database.DatabaseHelper
+import com.antonsmart.iceenberg.Objects.Location
 import com.antonsmart.iceenberg.R
 import com.antonsmart.iceenberg.databinding.ActivityFormLocalizacionBinding
 
@@ -22,13 +24,33 @@ class FormLocalizacionActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbarFormLocalizaciones)
 
+        //Se confirma si llega un dato a la activity
+        val intent = intent
+        var titleFormLocation = getString(R.string.main_form_location_title)
+        var nameEditText = ""
+        var percentageEditText = ""
+
+        if (intent != null && intent.hasExtra("location")) {
+            Toast.makeText(this, "Llego", Toast.LENGTH_SHORT).show()
+            val location = intent.getSerializableExtra("location") as? Location
+            titleFormLocation = getString(R.string.main_form_location_title_edit)
+            val locationId = location?.id!!
+            nameEditText = location.name
+            percentageEditText = location.percentage.toString()
+
+            binding.buttonsEdit.visibility = View.VISIBLE
+        } else {
+            Toast.makeText(this, "No llego", Toast.LENGTH_SHORT).show()
+            binding.buttonsAdd.visibility = View.VISIBLE
+        }
+
         supportActionBar?.apply {
-            title = getString(R.string.main_form_location_title)
+            title = titleFormLocation
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
 
-        binding.toolbarFormLocalizaciones.setOnClickListener {
+        binding.toolbarFormLocalizaciones.setNavigationOnClickListener {
             onBackPressed()
         }
 
@@ -42,8 +64,12 @@ class FormLocalizacionActivity : AppCompatActivity() {
         var percentageLocation: String
         var percentageLocationNum: Int;
 
-        //Tomar los datos del usuario
-        binding.btnEdit.setOnClickListener {
+        //Setear editText con el texto por defecto
+        binding.nombreLocalizacion.setText(nameEditText)
+        binding.porcentajeLocalizacion.setText(percentageEditText)
+
+        //Tomar los datos del usuario, botón agregar
+        binding.btnAdd.setOnClickListener {
             nameLocation = binding.nombreLocalizacion.text.toString()
             percentageLocation = binding.porcentajeLocalizacion.text.toString()
 
@@ -72,6 +98,11 @@ class FormLocalizacionActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, getString(R.string.empty), Toast.LENGTH_SHORT).show()
             }
+        }
+
+        //Botón cancelar
+        binding.btnCancel.setOnClickListener {
+            onBackPressed()
         }
     }
 }
