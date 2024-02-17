@@ -34,6 +34,15 @@
     <string name="main_form_maintenance_hint_name">Nombre del mantenimiento </string>
     <string name="main_form_maintenance_hint_cost">Costo del mantenimiento</string>
 
+    //Página Principal instalacion
+    <string name="main_installation_title">Instalación</string>
+
+    //Página formulario instalacion
+    <string name="main_form_installation_title">Nueva instalación</string>
+    <string name="main_form_installation_title_edit">Editar instalación</string>
+    <string name="main_form_installation_hint_name">Nombre de la instalación</string>
+    <string name="main_form_installation_hint_cost">Costo de la instalación</string>
+
     //Página Principal revisiones
     <string name="main_revision_title">Revisiones</string>
 
