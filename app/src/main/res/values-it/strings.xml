@@ -48,6 +48,7 @@
 
     //Página formulario localizaciones
     <string name="main_form_location_title">Nuova sede</string>
+    <string name="main_form_location_title_edit">Modifica posizione</string>
     <string name="main_form_location_hint_name">Nome del luogo</string>
     <string name="main_form_location_hint_percentage">Percentuale deducibile</string>
     <string name="main_form_location_error_percentage">Il numero deve essere compreso tra 1 e 100</string>

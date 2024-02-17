@@ -8,10 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.antonsmart.iceenberg.Objects.Location
 import com.antonsmart.iceenberg.R
 
-class LocationAdapter(private val locations: List<Location>) : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
+
+
+class LocationAdapter(private val locations: List<Location>, private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>() {
 
     inner class LocationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombreTextView: TextView = itemView.findViewById(R.id.nombreLocationTextView)
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(location: Location)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LocationViewHolder {
@@ -29,5 +35,9 @@ class LocationAdapter(private val locations: List<Location>) : RecyclerView.Adap
         holder.nombreTextView.text = currentLocation.name
 
         holder.itemView.tag = currentLocation
+
+        holder.itemView.setOnClickListener {
+            itemClickListener.onItemClick(currentLocation)
+        }
     }
 }

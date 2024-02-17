@@ -12,7 +12,7 @@ import com.antonsmart.iceenberg.Objects.Location
 import com.antonsmart.iceenberg.R
 import com.antonsmart.iceenberg.databinding.ActivityLocalizacionBinding
 
-class LocalizacionActivity : AppCompatActivity() {
+class LocalizacionActivity : AppCompatActivity(), LocationAdapter.OnItemClickListener {
 
     private lateinit var binding: ActivityLocalizacionBinding
     private lateinit var dbHelper: DatabaseHelper
@@ -48,10 +48,16 @@ class LocalizacionActivity : AppCompatActivity() {
         val locations = locationController.getLocation()
 
         val recyclerView: RecyclerView = findViewById(R.id.localizaciones_recyclerView)
-        val adapter = LocationAdapter(locations)
+        val adapter = LocationAdapter(locations, this)
         recyclerView.adapter = adapter
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
+    }
+
+    override fun onItemClick(location: Location) {
+        val intent = Intent(this, FormLocalizacionActivity::class.java)
+        intent.putExtra("location", location)
+        startActivity(intent)
     }
 }
