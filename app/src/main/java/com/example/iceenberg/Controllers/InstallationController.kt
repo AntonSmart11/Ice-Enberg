@@ -12,4 +12,8 @@ class InstallationController(private val dbHelper: DatabaseHelper) {
     fun getInstallation() : List<Installation> {
         return dbHelper.getInstallation()
     }
+
+    fun deleteInstallation(id: Int): Boolean {
+        return dbHelper.deleteInstallation(id)
+    }
 }

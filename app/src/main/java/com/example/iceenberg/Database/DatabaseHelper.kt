@@ -169,15 +169,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return result != -1L
     }
 
-    //Localizaciones
-    fun insertLocations(name: String, percentage: Int) : Boolean {
+    //eliminar instalacion
+    fun deleteInstallation(id: Int) : Boolean {
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put(NAME_LOCATIONS, name)
-        values.put(PERCENTAGE_LOCATIONS, percentage)
-        val result = db.insert(TABLE_LOCATIONS, null, values)
+        values.put(ID_INSTALLATION, id)
+        val result = db.delete(TABLE_INSTALLATION, ID_INSTALLATION + "=" + id, null)
 
-        return result != -1L
+        //Regresar si fue exitosa o no la inserción
+        return result != -1
     }
 
     //traer las instalaciones
@@ -203,6 +203,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
 
         return installations
+    }
+
+    //Localizaciones
+    fun insertLocations(name: String, percentage: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_LOCATIONS, name)
+        values.put(PERCENTAGE_LOCATIONS, percentage)
+        val result = db.insert(TABLE_LOCATIONS, null, values)
+
+        return result != -1L
     }
 
     @SuppressLint("Range")
