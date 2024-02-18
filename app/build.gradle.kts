@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.antonsmart.iceenberg"
+    namespace = "com.example.iceenberg"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.antonsmart.iceenberg"
+        applicationId = "com.example.iceenberg"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

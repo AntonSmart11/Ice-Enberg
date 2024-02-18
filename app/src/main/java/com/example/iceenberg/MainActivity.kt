@@ -1,11 +1,10 @@
-package com.antonsmart.iceenberg
+package com.example.iceenberg
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.antonsmart.iceenberg.instalacion.InstalacionActivity
-import com.antonsmart.iceenberg.mantenimiento.MantenimientoActivity
+import com.example.iceenberg.mantenimiento.MantenimientoActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

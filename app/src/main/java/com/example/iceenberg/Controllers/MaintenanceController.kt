@@ -1,6 +1,6 @@
-package com.antonsmart.iceenberg.Controllers
+package com.example.iceenberg.Controllers
 
-import com.antonsmart.iceenberg.Database.DatabaseHelper
+import com.example.iceenberg.Database.DatabaseHelper
 
 class MaintenanceController(private val dbHelper: DatabaseHelper){
 

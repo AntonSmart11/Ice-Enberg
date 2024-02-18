@@ -1,4 +1,4 @@
-package com.antonsmart.iceenberg
+package com.example.iceenberg
 
 import org.junit.Test
 

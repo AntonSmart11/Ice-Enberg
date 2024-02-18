@@ -1,10 +1,9 @@
-package com.antonsmart.iceenberg.revision
+package com.example.iceenberg.revision
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.antonsmart.iceenberg.R
-import com.antonsmart.iceenberg.databinding.ActivityRevisionBinding
+import com.example.iceenberg.databinding.ActivityRevisionBinding
 
 class RevisionActivity : AppCompatActivity() {
 

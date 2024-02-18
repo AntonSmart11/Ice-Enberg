@@ -1,16 +1,16 @@
-package com.antonsmart.iceenberg
+package com.example.iceenberg
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.antonsmart.iceenberg.databinding.ActivityMainAdminBinding
+import com.example.iceenberg.databinding.ActivityMainAdminBinding
 import android.view.Gravity
 import android.view.MenuItem
-import androidx.navigation.Navigation
-import com.antonsmart.iceenberg.instalacion.InstalacionActivity
-import com.antonsmart.iceenberg.mantenimiento.MantenimientoActivity
-import com.antonsmart.iceenberg.revision.RevisionActivity
+import com.example.iceenberg.instalacion.InstalacionActivity
+import com.example.iceenberg.localizacion.LocalizacionActivity
+import com.example.iceenberg.mantenimiento.MantenimientoActivity
+import com.example.iceenberg.revision.RevisionActivity
 import com.google.android.material.navigation.NavigationView
 
 class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -69,6 +69,10 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
         binding.revisionPage.setOnClickListener {
             val intent = Intent(this,RevisionActivity::class.java)
+            startActivity(intent)
+        }
+        binding.localizacionPage.setOnClickListener {
+            val intent = Intent(this, LocalizacionActivity::class.java)
             startActivity(intent)
         }
     }

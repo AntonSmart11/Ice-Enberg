@@ -1,10 +1,10 @@
-package com.antonsmart.iceenberg.mantenimiento
+package com.example.iceenberg.mantenimiento
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.antonsmart.iceenberg.R
-import com.antonsmart.iceenberg.databinding.ActivityMantenimientoBinding
+import com.example.iceenberg.R
+import com.example.iceenberg.databinding.ActivityMantenimientoBinding
 
 class MantenimientoActivity : AppCompatActivity() {
 
@@ -18,7 +18,7 @@ class MantenimientoActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarMantenimientos)
 
         supportActionBar?.apply {
-            title = "Mantenimientos"
+            title = getString(R.string.main_maintenance_title)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
