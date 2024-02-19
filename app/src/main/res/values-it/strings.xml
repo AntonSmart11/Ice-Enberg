@@ -12,6 +12,8 @@
 
     <string name="successInsert">Inserimento riuscito</string>
     <string name="errorInsert">Errore nell\'inserimento dei dati</string>
+    <string name="successDelete">Rimozione riuscita</string>
+    <string name="errorDelete">Errore durante l\'eliminazione dei dati</string>
 
     <string name="empty">Campi vuoti</string>
 
@@ -44,6 +46,10 @@
     <string name="main_form_installation_title_edit">Modifica facilità</string>
     <string name="main_form_installation_hint_name">Nome della facilità</string>
     <string name="main_form_installation_hint_cost">Costo dela facilità</string>
+
+    //alert dialog instalacion
+    <string name="main_dialog_delete_title">Elimina facilità</string>
+    <string name="main_dialog_delete_message">Vuoi rimuovere questa facilità?"</string>
 
     //Página Principal revisiones
     <string name="main_revision_title"> Revisioni</string>
