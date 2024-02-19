@@ -34,6 +34,7 @@
 
     //Página formulario mantenimientos
     <string name="main_form_maintenance_title">Nuova Manutenzione</string>
+    <string name="main_form_maintenance_title_edit">Modifica Manutenzione</string>
     <string name="main_form_maintenance_hint_name">Nome della manutenzione</string>
     <string name="main_form_maintenance_hint_cost">Costo della manutenzione</string>
 

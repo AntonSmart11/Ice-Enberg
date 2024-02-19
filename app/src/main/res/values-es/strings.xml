@@ -33,6 +33,7 @@
 
     //Página formulario mantenimientos
     <string name="main_form_maintenance_title">Nuevo Mantenimiento</string>
+    <string name="main_form_maintenance_title_edit">Editar Mantenimiento</string>
     <string name="main_form_maintenance_hint_name">Nombre del mantenimiento </string>
     <string name="main_form_maintenance_hint_cost">Costo del mantenimiento</string>
 

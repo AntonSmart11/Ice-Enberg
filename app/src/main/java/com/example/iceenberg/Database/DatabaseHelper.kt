@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
+import com.example.iceenberg.Objects.Maintenance
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -180,6 +181,32 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return result != -1
     }
 
+    //Traer los mantenimientos
+
+    @SuppressLint("Range")
+    fun getMaintenances(): MutableList<Maintenance>{
+        val maintenances = mutableListOf<Maintenance>()
+        val db = this.readableDatabase
+
+        val query = "SELECT * FROM $TABLE_MAINTENANCE"
+        val cursor: Cursor = db.rawQuery(query,null)
+
+        if (cursor.moveToFirst()){
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(ID_MAINTENANCE))
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_MAINTENANCE))
+                val costo = cursor.getInt(cursor.getColumnIndex(PRICE_MAINTENANCE))
+
+                maintenances.add(Maintenance(id,nombre,costo.toDouble()))
+            }while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return maintenances
+    }
+
     //traer las instalaciones
     @SuppressLint("Range")
     fun getInstallation() : List<Installation> {
@@ -239,4 +266,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         return locations
     }
+
+    //Actualizar mantenimiento
+    fun updateMaintenance(id: Int, newName: String, newCost: Double) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(NAME_MAINTENANCE, newName)
+        contentValues.put(PRICE_MAINTENANCE, newCost)
+        val result = db.update(TABLE_MAINTENANCE, contentValues, "$ID_MAINTENANCE = ?", arrayOf(id.toString()));
+
+        return result > -1L
+    }
 }
+
