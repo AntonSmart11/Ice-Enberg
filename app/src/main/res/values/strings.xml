@@ -14,6 +14,8 @@
 
     <string name="successInsert">Successful insertion</string>
     <string name="errorInsert">Error inserting data</string>
+    <string name="successDelete">Successful removal</string>
+    <string name="errorDelete">Error deleting data</string>
 
     <string name="empty">Empty fields</string>
 
@@ -31,6 +33,7 @@
 
     //Página formulario mantenimientos
     <string name="main_form_maintenance_title">New maintenance</string>
+    <string name="main_form_maintenance_title_edit">Edit maintenance</string>
     <string name="main_form_maintenance_hint_name">Maintenance name</string>
     <string name="main_form_maintenance_hint_cost">Maintenance cost</string>
 
@@ -42,6 +45,10 @@
     <string name="main_form_installation_title_edit">Edit installation</string>
     <string name="main_form_installation_hint_name">Installation name</string>
     <string name="main_form_installation_hint_cost">Installation cost</string>
+
+    //alert dialog instalacion
+    <string name="main_dialog_delete_title">Remove Installation</string>
+    <string name="main_dialog_delete_message">Do you want to remove this installation?"</string>
 
     //Página Principal revisiones
     <string name="main_revision_title">Revisions</string>

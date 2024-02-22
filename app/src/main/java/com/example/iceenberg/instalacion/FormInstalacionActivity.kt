@@ -1,5 +1,6 @@
 package com.example.iceenberg.instalacion
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -28,11 +29,12 @@ class FormInstalacionActivity : AppCompatActivity() {
         var titleFormInstallation = getString(R.string.main_form_installation_title)
         var nameEditText = ""
         var constEditText = ""
+        var installationId = 0
 
         if (intent != null && intent.hasExtra("installation")) {
             val installation = intent.getSerializableExtra("installation") as? Installation
             titleFormInstallation = getString(R.string.main_form_installation_title_edit)
-            val installationId = installation?.id!!
+            installationId = installation?.id!!
             nameEditText = installation.name
             constEditText = installation.cost.toString()
 
@@ -98,7 +100,35 @@ class FormInstalacionActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //eliminar
+        binding.btnDelete.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            val id = installationId
 
+            builder.setTitle(getString(R.string.main_dialog_delete_title))
+            builder.setMessage(getString(R.string.main_dialog_delete_message))
+
+            builder.setNegativeButton(getString(R.string.cancel)) { dialog, which ->
+                dialog.dismiss()
+            }
+
+            builder.setPositiveButton(getString(R.string.delete)) { dialog, which ->
+                val eliminacion = installationController.deleteInstallation(id)
+                if(eliminacion) {
+                    dialog.dismiss()
+                    Toast.makeText(this, getString(R.string.successDelete), Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                } else {
+                    dialog.dismiss()
+                    Toast.makeText(this, getString(R.string.errorDelete), Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                }
+            }
+
+            // Crear y mostrar el diálogo
+            val dialog = builder.create()
+            dialog.show()
+        }
 
     }
 }
