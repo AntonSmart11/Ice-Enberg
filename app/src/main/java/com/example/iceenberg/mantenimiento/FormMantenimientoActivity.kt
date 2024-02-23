@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.iceenberg.Controllers.MaintenanceController
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.Objects.Location
@@ -57,6 +58,10 @@ class FormMantenimientoActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //Botón cancelar
+        binding.btnCancel.setOnClickListener {
+            onBackPressed()
+        }
 
         //conexion a la bd y llamado del controlador
         dbHelper = DatabaseHelper(this)
@@ -128,6 +133,37 @@ class FormMantenimientoActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.empty), Toast.LENGTH_SHORT).show()
             }
 
+        }
+
+        //Eliminar datos de la BD
+        binding.btnDelete.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            val id = maintenanceID
+
+            builder.setTitle(getString(R.string.main_dialog_maintenance_delete_title))
+            builder.setMessage(getString(R.string.main_dialog_maintenance_delete_message))
+
+            builder.setNegativeButton(getString(R.string.cancel)){dialog, which ->
+                dialog.dismiss()
+            }
+
+            builder.setPositiveButton(getString(R.string.delete)){dialog, which ->
+                val eliminacion = maintenanceController.deleteMaintenance(id)
+                if(eliminacion) {
+                    dialog.dismiss()
+                    Toast.makeText(this, getString(R.string.successDelete), Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                } else {
+                    dialog.dismiss()
+                    Toast.makeText(this, getString(R.string.errorDelete), Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                }
+
+            }
+
+            // Crear y mostrar el diálogo
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 }

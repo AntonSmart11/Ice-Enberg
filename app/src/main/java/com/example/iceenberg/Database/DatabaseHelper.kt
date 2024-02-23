@@ -196,6 +196,16 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return result > -1L
     }
 
+    //eliminar mantenimiento
+    fun deleteMaintenance(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_MAINTENANCE, id)
+        val result = db.delete(TABLE_MAINTENANCE, ID_MAINTENANCE + "=" + id, null)
+
+        return result != -1
+    }
+
     //Instalaciones
 
     // Insertar instalación
