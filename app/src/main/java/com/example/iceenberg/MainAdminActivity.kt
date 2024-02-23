@@ -7,6 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.iceenberg.databinding.ActivityMainAdminBinding
 import android.view.Gravity
 import android.view.MenuItem
+import com.example.iceenberg.idiomas.IdiomasActivity
 import com.example.iceenberg.instalacion.InstalacionActivity
 import com.example.iceenberg.localizacion.LocalizacionActivity
 import com.example.iceenberg.mantenimiento.MantenimientoActivity
@@ -41,11 +42,12 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Manejar clics en elementos del menú
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.menu_item1 -> {
-                    // Lógica para la opción 1
+                R.id.menu_idiomas -> {
+                    val intent = Intent(this, IdiomasActivity::class.java)
+                    startActivity(intent)
                     true
                 }
-                R.id.menu_item2 -> {
+                R.id.cerrar_sesion -> {
                     // Lógica para la opción 2
                     true
                 }

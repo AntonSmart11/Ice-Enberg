@@ -145,6 +145,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     //Functions
 
     //Mantenimientos
+
+    //Insertar mantenimiento
     fun insertMaintenance(name: String, cost: Double) :Boolean{
         val db = this.writableDatabase
         val values = ContentValues()
@@ -155,30 +157,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         //Regresar si fue exitosa o no la inserción
         return result != -1L
-    }
-
-    //Instalaciones
-    fun insertInstallation(name: String, cost: Double) :Boolean{
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(NAME_INSTALLATION,name)
-        values.put(PRICE_INSTALLATION,cost)
-        val result = db.insert(TABLE_INSTALLATION, null, values)
-
-
-        //Regresar si fue exitosa o no la inserción
-        return result != -1L
-    }
-
-    //eliminar instalacion
-    fun deleteInstallation(id: Int) : Boolean {
-        val db = this.writableDatabase
-        val values = ContentValues()
-        values.put(ID_INSTALLATION, id)
-        val result = db.delete(TABLE_INSTALLATION, ID_INSTALLATION + "=" + id, null)
-
-        //Regresar si fue exitosa o no la inserción
-        return result != -1
     }
 
     //Traer los mantenimientos
@@ -205,6 +183,43 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
 
         return maintenances
+    }
+
+    //Actualizar mantenimiento
+    fun updateMaintenance(id: Int, newName: String, newCost: Double) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(NAME_MAINTENANCE, newName)
+        contentValues.put(PRICE_MAINTENANCE, newCost)
+        val result = db.update(TABLE_MAINTENANCE, contentValues, "$ID_MAINTENANCE = ?", arrayOf(id.toString()));
+
+        return result > -1L
+    }
+
+    //Instalaciones
+
+    // Insertar instalación
+    fun insertInstallation(name: String, cost: Double) :Boolean{
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_INSTALLATION,name)
+        values.put(PRICE_INSTALLATION,cost)
+        val result = db.insert(TABLE_INSTALLATION, null, values)
+
+
+        //Regresar si fue exitosa o no la inserción
+        return result != -1L
+    }
+
+    //eliminar instalacion
+    fun deleteInstallation(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_INSTALLATION, id)
+        val result = db.delete(TABLE_INSTALLATION, ID_INSTALLATION + "=" + id, null)
+
+        //Regresar si fue exitosa o no la inserción
+        return result != -1
     }
 
     //traer las instalaciones
@@ -244,7 +259,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     @SuppressLint("Range")
-    fun getLocations() : List<Location> {
+    fun getLocations() : MutableList<Location> {
         val locations = mutableListOf<Location>()
         val db = this.readableDatabase
 
@@ -267,15 +282,28 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return locations
     }
 
-    //Actualizar mantenimiento
-    fun updateMaintenance(id: Int, newName: String, newCost: Double) : Boolean {
+    //Actualizar localizaciones
+    fun updateLocation(id: Int, newName: String, newPercentage: Int) : Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(NAME_MAINTENANCE, newName)
-        contentValues.put(PRICE_MAINTENANCE, newCost)
-        val result = db.update(TABLE_MAINTENANCE, contentValues, "$ID_MAINTENANCE = ?", arrayOf(id.toString()));
+        contentValues.put(NAME_LOCATIONS, newName)
+        contentValues.put(PERCENTAGE_LOCATIONS, newPercentage)
+        val result = db.update(TABLE_LOCATIONS, contentValues, "$ID_LOCATIONS = ?", arrayOf(id.toString()));
 
         return result > -1L
     }
+
+    //eliminar localizaciones
+    fun deleteLocation(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_LOCATIONS, id)
+        val result = db.delete(TABLE_LOCATIONS, ID_LOCATIONS + "=" + id, null)
+
+        //Regresar si fue exitosa o no la inserción
+        return result != -1
+    }
+
+
 }
 

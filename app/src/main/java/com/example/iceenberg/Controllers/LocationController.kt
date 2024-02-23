@@ -9,7 +9,15 @@ class LocationController(private val dbHelper: DatabaseHelper) {
         return dbHelper.insertLocations(name, percentage)
     }
 
-    fun getLocation() : List<Location> {
+    fun getLocation() : MutableList<Location> {
         return dbHelper.getLocations()
+    }
+
+    fun updateLocation(id: Int, name: String, percentage: Int) : Boolean {
+        return dbHelper.updateLocation(id, name, percentage)
+    }
+
+    fun deleteInstallation(id: Int) : Boolean {
+        return dbHelper.deleteLocation(id)
     }
 }
