@@ -30,21 +30,19 @@ class FormMantenimientoActivity : AppCompatActivity() {
         val intent = intent
         var titleFormMaintenance = getString(R.string.main_form_maintenance_title)
         var nameEditText = ""
-        var costEditText = 0
+        var costEditText = ""
         var maintenanceID = 0
 
         if (intent != null && intent.hasExtra("maintenance")) {
-            Toast.makeText(this, "Llego", Toast.LENGTH_SHORT).show()
             val maintenance = intent.getSerializableExtra("maintenance") as? Maintenance
             titleFormMaintenance = getString(R.string.main_form_maintenance_title_edit)
             val maintenanceId = maintenance?.id!!
             maintenanceID = maintenanceId
             nameEditText = maintenance.name
-            costEditText = maintenance.cost.toInt()
+            costEditText = maintenance.cost.toString()
 
             binding.buttonsEdit.visibility = View.VISIBLE
         } else {
-            Toast.makeText(this, "No llego", Toast.LENGTH_SHORT).show()
             binding.buttonsAdd.visibility = View.VISIBLE
         }
 

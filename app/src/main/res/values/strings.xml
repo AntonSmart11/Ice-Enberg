@@ -19,6 +19,16 @@
 
     <string name="empty">Empty fields</string>
 
+    //Idiomas
+    <string name="main_language_title">Languages</string>
+    <string name="main_select_language">Select language</string>
+
+    <string-array name="options_language">
+        <item>English</item>
+        <item>Spanish</item>
+        <item>Italian</item>
+    </string-array>
+
     //Página principal administrador
     <string name="main_admin_title">Control Panel</string>
     <string name="main_admin_welcome">Administrator Tools</string>
@@ -67,6 +77,10 @@
     <string name="main_form_location_hint_name">Location name</string>
     <string name="main_form_location_hint_percentage">Deductible percentage</string>
     <string name="main_form_location_error_percentage">The number must be between 1 and 100</string>
+
+    //alert dialog locación
+    <string name="main_dialog_location_delete_title">Remove Locations</string>
+    <string name="main_dialog_location_delete_message">Do you want to remove this location?"</string>
 
 
 </resources>

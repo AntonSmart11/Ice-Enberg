@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
                         android:layout_weight="1"
-                        android:backgroundTint="@color/primary"
+                        android:backgroundTint="@color/red"
                         android:text="@string/delete"
                         android:textColor="@color/white"
                         android:textSize="18sp"/>
