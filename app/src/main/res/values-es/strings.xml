@@ -47,6 +47,10 @@
     <string name="main_form_maintenance_hint_name">Nombre del mantenimiento </string>
     <string name="main_form_maintenance_hint_cost">Costo del mantenimiento</string>
 
+    //alert dialog mantenimientos
+    <string name="main_dialog_maintenance_delete_title">Eliminar mantenimiento</string>
+    <string name="main_dialog_maintenance_delete_message">¿Desea eliminar este mantenimiento?"</string>
+
     //Página Principal instalacion
     <string name="main_installation_title">Instalación</string>
 

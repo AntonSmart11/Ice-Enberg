@@ -17,4 +17,11 @@ class MaintenanceController(private val dbHelper: DatabaseHelper){
     fun updateMaintenance(id:Int, name: String, cost: Double) : Boolean{
         return dbHelper.updateMaintenance(id,name,cost)
     }
+
+    fun deleteMaintenance(id: Int) : Boolean {
+        return dbHelper.deleteMaintenance(id)
+    }
+
+
+
 }
