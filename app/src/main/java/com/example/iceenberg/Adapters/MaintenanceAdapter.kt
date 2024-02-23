@@ -32,7 +32,6 @@ class MaintenanceAdapter(private val maintenances: MutableList<Maintenance>, pri
     }
 
     fun updateList(newList: List<Maintenance>) {
-
         maintenances.clear()
         maintenances.addAll(newList)
         notifyDataSetChanged()

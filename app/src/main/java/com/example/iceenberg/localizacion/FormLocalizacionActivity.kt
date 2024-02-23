@@ -1,5 +1,6 @@
 package com.example.iceenberg.localizacion
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -29,18 +30,18 @@ class FormLocalizacionActivity : AppCompatActivity() {
         var titleFormLocation = getString(R.string.main_form_location_title)
         var nameEditText = ""
         var percentageEditText = ""
+        var locationID = 0
 
         if (intent != null && intent.hasExtra("location")) {
-            Toast.makeText(this, "Llego", Toast.LENGTH_SHORT).show()
             val location = intent.getSerializableExtra("location") as? Location
             titleFormLocation = getString(R.string.main_form_location_title_edit)
             val locationId = location?.id!!
+            locationID = locationId
             nameEditText = location.name
             percentageEditText = location.percentage.toString()
 
             binding.buttonsEdit.visibility = View.VISIBLE
         } else {
-            Toast.makeText(this, "No llego", Toast.LENGTH_SHORT).show()
             binding.buttonsAdd.visibility = View.VISIBLE
         }
 
@@ -103,6 +104,69 @@ class FormLocalizacionActivity : AppCompatActivity() {
         //Botón cancelar
         binding.btnCancel.setOnClickListener {
             onBackPressed()
+        }
+
+        //Botón editar
+        binding.btnEdit.setOnClickListener {
+            nameLocation = binding.nombreLocalizacion.text.toString()
+            percentageLocation = binding.porcentajeLocalizacion.text.toString()
+
+            if (nameLocation.isNotEmpty() && percentageLocation.isNotEmpty()) {
+                percentageLocationNum = percentageLocation.toInt()
+
+                if (percentageLocationNum in 1..100) {
+                    //Insertar datos a la BD
+                    val exitoso = locationController.updateLocation(locationID ,nameLocation, percentageLocationNum)
+
+                    if (exitoso) {
+                        Toast.makeText(this, getString(R.string.successInsert), Toast.LENGTH_SHORT).show()
+
+                        val handler = Handler()
+                        val runnable = Runnable {
+                            onBackPressed()
+                        }
+
+                        handler.postDelayed(runnable, 150)
+                    } else {
+                        Toast.makeText(this, getString(R.string.errorInsert), Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(this, getString(R.string.main_form_location_error_percentage), Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, getString(R.string.empty), Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        //Botón eliminar
+        //eliminar
+        binding.btnDelete.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            val id = locationID
+
+            builder.setTitle(getString(R.string.main_dialog_location_delete_title))
+            builder.setMessage(getString(R.string.main_dialog_location_delete_message))
+
+            builder.setNegativeButton(getString(R.string.cancel)) { dialog, which ->
+                dialog.dismiss()
+            }
+
+            builder.setPositiveButton(getString(R.string.delete)) { dialog, which ->
+                val eliminacion = locationController.deleteInstallation(id)
+                if(eliminacion) {
+                    dialog.dismiss()
+                    Toast.makeText(this, getString(R.string.successDelete), Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                } else {
+                    dialog.dismiss()
+                    Toast.makeText(this, getString(R.string.errorDelete), Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                }
+            }
+
+            // Crear y mostrar el diálogo
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 }

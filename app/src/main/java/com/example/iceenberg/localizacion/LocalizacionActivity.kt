@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iceenberg.Adapters.LocationAdapter
+import com.example.iceenberg.Adapters.MaintenanceAdapter
 import com.example.iceenberg.Controllers.LocationController
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.Objects.Location
@@ -53,6 +54,14 @@ class LocalizacionActivity : AppCompatActivity(), LocationAdapter.OnItemClickLis
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Actualizar la lista de mantenimientos en el RecyclerView
+        val locations = locationController.getLocation()
+        (binding.localizacionesRecyclerView.adapter as? LocationAdapter)?.updateList(locations)
     }
 
     override fun onItemClick(location: Location) {
