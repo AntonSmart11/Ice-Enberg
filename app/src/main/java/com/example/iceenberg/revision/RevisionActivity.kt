@@ -3,6 +3,7 @@ package com.example.iceenberg.revision
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.iceenberg.R
 import com.example.iceenberg.databinding.ActivityRevisionBinding
 
 class RevisionActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class RevisionActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarRevisiones)
 
         supportActionBar?.apply {
-            title = "revisiones"
+            title = getString(R.string.main_revision_title)
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }

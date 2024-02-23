@@ -17,6 +17,16 @@
 
     <string name="empty">Campos vacíos</string>
 
+    //Idiomas
+    <string name="main_language_title">Idiomas</string>
+    <string name="main_select_language">Seleccione el idioma</string>
+
+    <string-array name="options_language">
+        <item>Inglés</item>
+        <item>Español</item>
+        <item>Italiano</item>
+    </string-array>
+
     //Página principal administrador
     <string name="main_admin_title">Panel de Control</string>
     <string name="main_admin_welcome">Herramientas del Administrador</string>
@@ -67,5 +77,9 @@
     <string name="main_form_location_hint_name">Nombre de la localización</string>
     <string name="main_form_location_hint_percentage">Porcentaje deducible</string>
     <string name="main_form_location_error_percentage">El número tiene que estar entre 1 y 100</string>
+
+    //alert dialog locación
+    <string name="main_dialog_location_delete_title">Eliminar Localización</string>
+    <string name="main_dialog_location_delete_message">¿Desea eliminar esta localización?"</string>
 
 </resources>
