@@ -29,12 +29,13 @@ class FormInstalacionActivity : AppCompatActivity() {
         var titleFormInstallation = getString(R.string.main_form_installation_title)
         var nameEditText = ""
         var constEditText = ""
-        var installationId = 0
+        var installationID= 0
 
         if (intent != null && intent.hasExtra("installation")) {
             val installation = intent.getSerializableExtra("installation") as? Installation
             titleFormInstallation = getString(R.string.main_form_installation_title_edit)
-            installationId = installation?.id!!
+            val installationId = installation?.id!!
+            installationID = installationId
             nameEditText = installation.name
             constEditText = installation.cost.toString()
 
@@ -100,13 +101,43 @@ class FormInstalacionActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        //Editar datos en la BD
+        binding.btnEdit.setOnClickListener {
+
+            nameInstallation = binding.nombreInstalacion.text.toString()
+            costInstallation = binding.costoInstalacion.text.toString()
+
+            if (nameInstallation.isNotEmpty() && costInstallation.isNotEmpty()) {
+                costInstallationNum = costInstallation.toDouble()
+
+                //Insertar datos a la BD
+                val exitoso = installationController.updateInstallation(installationID,nameInstallation,costInstallationNum);
+
+                if (exitoso) {
+                    Toast.makeText(this, getString(R.string.successInsert), Toast.LENGTH_SHORT).show()
+
+                    val handler = Handler()
+                    val runnable = Runnable {
+                        onBackPressed()
+                    }
+
+                    handler.postDelayed(runnable, 150) // 3 segundos de retraso
+                } else {
+                    Toast.makeText(this, getString(R.string.errorInsert), Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, getString(R.string.empty), Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
         //eliminar
         binding.btnDelete.setOnClickListener {
             val builder = AlertDialog.Builder(this)
-            val id = installationId
+            val id = installationID
 
-            builder.setTitle(getString(R.string.main_dialog_delete_title))
-            builder.setMessage(getString(R.string.main_dialog_delete_message))
+            builder.setTitle(getString(R.string.main_dialog_installation_delete_title))
+            builder.setMessage(getString(R.string.main_dialog_installation_delete_message))
 
             builder.setNegativeButton(getString(R.string.cancel)) { dialog, which ->
                 dialog.dismiss()
