@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
+import com.example.iceenberg.Objects.Revision
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -322,6 +323,65 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val result = db.delete(TABLE_LOCATIONS, ID_LOCATIONS + "=" + id, null)
 
         //Regresar si fue exitosa o no la inserción
+        return result != -1
+    }
+
+    //Revisiones
+
+    //insertar revisiones
+    fun insertRevisions(name: String, cost: Double) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_REVISION, name)
+        values.put(PRICE_REVISION, cost)
+        val result = db.insert(TABLE_REVISION, null, values)
+
+        return result != -1L
+    }
+
+    //Traer las revisiones
+    @SuppressLint("Range")
+    fun getRevisions(): MutableList<Revision>{
+        val revisions = mutableListOf<Revision>()
+        val db = this.readableDatabase
+
+        val query = "SELECT * FROM $TABLE_REVISION"
+        val cursor: Cursor = db.rawQuery(query,null)
+
+        if (cursor.moveToFirst()){
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(ID_REVISION))
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_REVISION))
+                val costo = cursor.getInt(cursor.getColumnIndex(PRICE_REVISION))
+
+                revisions.add(Revision(id,nombre,costo.toDouble()))
+            }while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return revisions
+    }
+
+    //Actualizar revision
+    fun updateRevision(id: Int, newName: String, newCost: Double) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(NAME_REVISION, newName)
+        contentValues.put(PRICE_REVISION, newCost)
+        val result = db.update(TABLE_REVISION, contentValues, "$ID_REVISION = ?", arrayOf(id.toString()));
+
+        return result > -1L
+    }
+
+    //Eliminar revision
+    fun deleteRevision(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_REVISION, id)
+        val result = db.delete(TABLE_REVISION, ID_REVISION + "=" + id, null)
+
         return result != -1
     }
 

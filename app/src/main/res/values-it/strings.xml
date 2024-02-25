@@ -71,8 +71,14 @@
 
     //Página formulario revisiones
     <string name="main_form_revision_title">Nuova revisione</string>
+    <string name="main_form_revision_title_edit">Modifica revisione</string>
     <string name="main_form_revision_hint_name">Nome della revisione</string>
     <string name="main_form_revision_hint_cost"> Costo della revisione</string>
+
+
+    //alert dialog mantenimiento
+    <string name="main_dialog_revision_delete_title">Elimina Revisione</string>
+    <string name="main_dialog_revision_delete_message">Vuoi rimuovere questa revisione?"</string>
 
     //Página Principal localizaciones
     <string name="main_location_title">Posizione</string>

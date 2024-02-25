@@ -42,13 +42,13 @@
     <string name="main_maintenance_title">Maintenance</string>
 
     //Página formulario mantenimientos
-    <string name="main_form_maintenance_title">New maintenance</string>
-    <string name="main_form_maintenance_title_edit">Edit maintenance</string>
+    <string name="main_form_maintenance_title">New Maintenance</string>
+    <string name="main_form_maintenance_title_edit">Edit Maintenance</string>
     <string name="main_form_maintenance_hint_name">Maintenance name</string>
     <string name="main_form_maintenance_hint_cost">Maintenance cost</string>
 
     //alert dialog mantenimientos
-    <string name="main_dialog_maintenance_delete_title">Remove maintenance</string>
+    <string name="main_dialog_maintenance_delete_title">Remove Maintenance</string>
     <string name="main_dialog_maintenance_delete_message">Do you want to remove this maintenance?"</string>
 
     //Página Principal instalacion
@@ -68,9 +68,14 @@
     <string name="main_revision_title">Revisions</string>
 
     //Página formulario revisiones
-    <string name="main_form_revision_title">New revision</string>
+    <string name="main_form_revision_title">New Revision</string>
+    <string name="main_form_revision_title_edit">Edit Revision</string>
     <string name="main_form_revision_hint_name">Revision name</string>
     <string name="main_form_revision_hint_cost">Revision cost</string>
+
+    //alert dialog instalacion
+    <string name="main_dialog_revision_delete_title">Remove Revision</string>
+    <string name="main_dialog_revision_delete_message">Do you want to remove this revision?"</string>
 
     //Página Principal localizaciones
     <string name="main_location_title">Location</string>
