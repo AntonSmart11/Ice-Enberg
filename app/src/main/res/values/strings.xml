@@ -61,8 +61,8 @@
     <string name="main_form_installation_hint_cost">Installation cost</string>
 
     //alert dialog instalacion
-    <string name="main_dialog_delete_title">Remove Installation</string>
-    <string name="main_dialog_delete_message">Do you want to remove this installation?"</string>
+    <string name="main_dialog_installation_delete_title">Remove Installation</string>
+    <string name="main_dialog_installation_delete_message">Do you want to remove this installation?"</string>
 
     //Página Principal revisiones
     <string name="main_revision_title">Revisions</string>

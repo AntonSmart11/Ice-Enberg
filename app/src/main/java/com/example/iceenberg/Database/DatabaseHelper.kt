@@ -222,6 +222,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return result != -1L
     }
 
+    //Actualizar instalacion
+    fun updateInstallation(id: Int, newName: String, newCost: Double) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(NAME_INSTALLATION, newName)
+        contentValues.put(PRICE_INSTALLATION, newCost)
+        val result = db.update(TABLE_INSTALLATION, contentValues, "$ID_INSTALLATION = ?", arrayOf(id.toString()));
+
+        return result > -1L
+    }
+
     //eliminar instalacion
     fun deleteInstallation(id: Int) : Boolean {
         val db = this.writableDatabase
@@ -235,7 +246,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     //traer las instalaciones
     @SuppressLint("Range")
-    fun getInstallation() : List<Installation> {
+    fun getInstallation() : MutableList<Installation> {
         val installations = mutableListOf<Installation>()
         val db = this.readableDatabase
 

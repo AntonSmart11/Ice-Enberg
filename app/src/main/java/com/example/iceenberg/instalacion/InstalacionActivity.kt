@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iceenberg.Adapters.InstallationAdapter
+import com.example.iceenberg.Adapters.LocationAdapter
 import com.example.iceenberg.Controllers.InstallationController
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.Objects.Installation
@@ -53,6 +54,14 @@ class InstalacionActivity : AppCompatActivity(), InstallationAdapter.OnItemClick
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        // Actualizar la lista de instalaciones en el RecyclerView
+        val installations = installationController.getInstallation()
+        (binding.instalacionesRecyclerView.adapter as? InstallationAdapter)?.updateList(installations)
     }
 
     override fun onItemClick(installation: Installation) {
