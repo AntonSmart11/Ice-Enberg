@@ -9,8 +9,11 @@ class InstallationController(private val dbHelper: DatabaseHelper) {
         return dbHelper.insertInstallation(name, cost)
     }
 
-    fun getInstallation() : List<Installation> {
+    fun getInstallation() : MutableList<Installation> {
         return dbHelper.getInstallation()
+    }
+    fun updateInstallation(id: Int, name: String, cost: Double) : Boolean {
+        return dbHelper.updateInstallation(id, name, cost)
     }
 
     fun deleteInstallation(id: Int): Boolean {
