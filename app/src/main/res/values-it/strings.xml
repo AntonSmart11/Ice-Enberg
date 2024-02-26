@@ -48,6 +48,11 @@
     <string name="main_form_maintenance_hint_name">Nome della manutenzione</string>
     <string name="main_form_maintenance_hint_cost">Costo della manutenzione</string>
 
+    //alert dialog mantenimiento
+    <string name="main_dialog_maintenance_delete_title">Elimina manutenzione</string>
+    <string name="main_dialog_maintenance_delete_message">Vuoi rimuovere questa manutenzione?"</string>
+
+
     //Página Principal instalacion
     <string name="main_installation_title">Facilità</string>
 
@@ -58,16 +63,22 @@
     <string name="main_form_installation_hint_cost">Costo dela facilità</string>
 
     //alert dialog instalacion
-    <string name="main_dialog_delete_title">Elimina facilità</string>
-    <string name="main_dialog_delete_message">Vuoi rimuovere questa facilità?"</string>
+    <string name="main_dialog_installation_delete_title">Elimina facilità</string>
+    <string name="main_dialog_installation_delete_message">Vuoi rimuovere questa facilità?"</string>
 
     //Página Principal revisiones
     <string name="main_revision_title"> Revisioni</string>
 
     //Página formulario revisiones
     <string name="main_form_revision_title">Nuova revisione</string>
+    <string name="main_form_revision_title_edit">Modifica revisione</string>
     <string name="main_form_revision_hint_name">Nome della revisione</string>
     <string name="main_form_revision_hint_cost"> Costo della revisione</string>
+
+
+    //alert dialog mantenimiento
+    <string name="main_dialog_revision_delete_title">Elimina Revisione</string>
+    <string name="main_dialog_revision_delete_message">Vuoi rimuovere questa revisione?"</string>
 
     //Página Principal localizaciones
     <string name="main_location_title">Posizione</string>

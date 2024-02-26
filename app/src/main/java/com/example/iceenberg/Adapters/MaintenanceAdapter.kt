@@ -11,7 +11,8 @@ import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.R
 
 
-class MaintenanceAdapter(private val maintenances: MutableList<Maintenance>, private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<MaintenanceAdapter.MaintenanceViewHolder>(){
+class MaintenanceAdapter(private val maintenances: MutableList<Maintenance>, private val itemClickListener: OnItemClickListener)
+    : RecyclerView.Adapter<MaintenanceAdapter.MaintenanceViewHolder>(){
 
     inner class MaintenanceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombreTextView: TextView = itemView.findViewById(R.id.nombreMaintenanceTextView)

@@ -47,6 +47,10 @@
     <string name="main_form_maintenance_hint_name">Nombre del mantenimiento </string>
     <string name="main_form_maintenance_hint_cost">Costo del mantenimiento</string>
 
+    //alert dialog mantenimientos
+    <string name="main_dialog_maintenance_delete_title">Eliminar mantenimiento</string>
+    <string name="main_dialog_maintenance_delete_message">¿Desea eliminar este mantenimiento?"</string>
+
     //Página Principal instalacion
     <string name="main_installation_title">Instalación</string>
 
@@ -57,16 +61,22 @@
     <string name="main_form_installation_hint_cost">Costo de la instalación</string>
 
     //alert dialog instalacion
-    <string name="main_dialog_delete_title">Eliminar Instalación</string>
-    <string name="main_dialog_delete_message">¿Desea eliminar esta instalación?"</string>
+    <string name="main_dialog_installation_delete_title">Eliminar Instalación</string>
+    <string name="main_dialog_installation_delete_message">¿Desea eliminar esta instalación?"</string>
 
     //Página Principal revisiones
     <string name="main_revision_title">Revisiones</string>
 
     //Página formulario revisiones
     <string name="main_form_revision_title">Nueva revisión</string>
+    <string name="main_form_revision_title_edit">Editar revisión</string>
     <string name="main_form_revision_hint_name">Nombre de la revisión</string>
     <string name="main_form_revision_hint_cost">Costo de la revisión</string>
+
+
+    //alert dialog locación
+    <string name="main_dialog_revision_delete_title">Eliminar Revisión</string>
+    <string name="main_dialog_revision_delete_message">¿Desea eliminar esta revisión?"</string>
 
     //Página Principal localizaciones
     <string name="main_location_title">Localización</string>

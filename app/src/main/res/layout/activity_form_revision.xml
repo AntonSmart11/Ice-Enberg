@@ -66,14 +66,16 @@
                         android:inputType="number"/>
 
                     <LinearLayout
+                        android:id="@+id/buttonsAdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="70dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <Button
-                            android:id="@+id/btnEdit"
+                            android:id="@+id/btnAdd"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
@@ -84,7 +86,7 @@
                             android:textSize="18sp" />
 
                         <Button
-                            android:id="@+id/btnDelete"
+                            android:id="@+id/btnCancel"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
@@ -93,6 +95,38 @@
                             android:text="@string/cancel"
                             android:textColor="@color/white"
                             android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/buttonsEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="70dp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/btnEdit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/primary"
+                            android:text="@string/edit"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"/>
+
+                        <Button
+                            android:id="@+id/btnDelete"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="1"
+                            android:backgroundTint="@color/red"
+                            android:text="@string/delete"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"/>
 
                     </LinearLayout>
 
