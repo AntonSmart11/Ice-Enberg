@@ -60,6 +60,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val ID_EQUIPMENT = "id_equipment"
         private const val USER_EQUIPMENT = "id_user"
         private const val LOCATION_EQUIPMENT = "id_locations"
+        private const val DIRECTION_EQUIPMENT = "direction"
         private const val BRAND_EQUIPMENT = "brand"
         private const val MODEL_EQUIPMENT = "model"
 
@@ -111,6 +112,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 ID_EQUIPMENT + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 USER_EQUIPMENT + " INTEGER," +
                 LOCATION_EQUIPMENT + " INTEGER," +
+                DIRECTION_EQUIPMENT + " TEXT," +
                 BRAND_EQUIPMENT + " TEXT," +
                 MODEL_EQUIPMENT + " TEXT" +
                 ")")
