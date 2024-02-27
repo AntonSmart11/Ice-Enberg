@@ -1,4 +1,4 @@
-package com.example.iceenberg.instalacion
+package com.example.iceenberg.admin.instalacion
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.iceenberg.Adapters.InstallationAdapter
-import com.example.iceenberg.Adapters.LocationAdapter
 import com.example.iceenberg.Controllers.InstallationController
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.Objects.Installation

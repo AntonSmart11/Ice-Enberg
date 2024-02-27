@@ -3,24 +3,22 @@ package com.example.iceenberg
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
-import com.example.iceenberg.databinding.ActivityMainAdminBinding
 import android.view.Gravity
 import android.view.MenuItem
-import com.example.iceenberg.idiomas.IdiomasActivity
-import com.example.iceenberg.admin.instalacion.InstalacionActivity
-import com.example.iceenberg.admin.localizacion.LocalizacionActivity
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.iceenberg.admin.mantenimiento.MantenimientoActivity
-import com.example.iceenberg.admin.revision.RevisionActivity
+import com.example.iceenberg.databinding.ActivityMainUserBinding
+import com.example.iceenberg.idiomas.IdiomasActivity
+import com.example.iceenberg.user.equipos.EquiposActivity
 import com.google.android.material.navigation.NavigationView
 
-class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var binding: ActivityMainAdminBinding
+    private lateinit var binding: ActivityMainUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_admin)
-        binding = ActivityMainAdminBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main_user)
+        binding = ActivityMainUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val toolbar = binding.toolbar
@@ -61,20 +59,8 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         //Manejar clic en los botones para ir a las páginas correspondientes
 
-        binding.mantenimientoPage.setOnClickListener {
-            val intent = Intent(this, MantenimientoActivity::class.java)
-            startActivity(intent)
-        }
-        binding.instalacionPage.setOnClickListener {
-            val intent = Intent(this, InstalacionActivity::class.java)
-            startActivity(intent)
-        }
-        binding.revisionPage.setOnClickListener {
-            val intent = Intent(this, RevisionActivity::class.java)
-            startActivity(intent)
-        }
-        binding.localizacionPage.setOnClickListener {
-            val intent = Intent(this, LocalizacionActivity::class.java)
+        binding.equiposPage.setOnClickListener {
+            val intent = Intent(this, EquiposActivity::class.java)
             startActivity(intent)
         }
     }
@@ -89,5 +75,4 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

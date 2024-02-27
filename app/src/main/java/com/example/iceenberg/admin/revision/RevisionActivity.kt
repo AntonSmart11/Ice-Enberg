@@ -1,4 +1,4 @@
-package com.example.iceenberg.revision
+package com.example.iceenberg.admin.revision
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -36,7 +36,7 @@ class RevisionActivity : AppCompatActivity(), RevisionAdapter.OnItemClickListene
         }
 
         binding.addRevision.setOnClickListener {
-            val intent = Intent(this,FormRevisionActivity::class.java)
+            val intent = Intent(this, FormRevisionActivity::class.java)
             startActivity(intent)
         }
 

@@ -1,4 +1,4 @@
-package com.example.iceenberg.instalacion
+package com.example.iceenberg.admin.instalacion
 
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity

@@ -92,4 +92,25 @@
     <string name="main_dialog_location_delete_title">Eliminar Localización</string>
     <string name="main_dialog_location_delete_message">¿Desea eliminar esta localización?"</string>
 
+    //Página principal usuario
+    <string name="main_user_title">Panel de Servicios</string>
+    <string name="main_user_services">Mis Servicios</string>
+    <string name="main_user_maintenance">Mantenimientos</string>
+    <string name="main_user_installation">Instalaciones</string>
+    <string name="main_user_revision">Revisiones</string>
+    <string name="main_user_equipment">Equipos</string>
+
+    //Página formulario equipos
+    <string name="main_form_equipments_title">Nuevo equipo</string>
+    <string name="main_form_equipments_title_edit">Editar equipo</string>
+    <string name="main_form_equipments_hint_name">Nombre del equipo</string>
+    <string name="main_form_equipments_hint_brand">Marca del equipo</string>
+    <string name="main_form_equipments_hint_model">Modelo del equipo</string>
+    <string name="main_form_equipments_hint_direction">Dirección del equipo</string>
+    <string name="main_form_equipments_hint_location">Localización del equipo</string>
+
+    <string-array name="options_equipments">
+        <item>Selecciona una opción</item>
+    </string-array>
+
 </resources>

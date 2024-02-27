@@ -1,4 +1,4 @@
-package com.example.iceenberg.mantenimiento
+package com.example.iceenberg.admin.mantenimiento
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -36,7 +36,7 @@ class MantenimientoActivity : AppCompatActivity(), MaintenanceAdapter.OnItemClic
         }
 
         binding.addMantenimiento.setOnClickListener {
-            val intent = Intent(this,FormMantenimientoActivity::class.java)
+            val intent = Intent(this, FormMantenimientoActivity::class.java)
             startActivity(intent)
         }
 

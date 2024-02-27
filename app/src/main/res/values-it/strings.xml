@@ -94,4 +94,25 @@
     <string name="main_dialog_location_delete_title">Elimina posizione</string>
     <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?"</string>
 
+    //Página principal usuario
+    <string name="main_user_title">Pannello dei Servizi</string>
+    <string name="main_user_services">I miei Servizi</string>
+    <string name="main_user_maintenance">Manutenzione</string>
+    <string name="main_user_installation">Strutture</string>
+    <string name="main_user_revision">Recensioni</string>
+    <string name="main_user_equipment">Attrezzatura</string>
+
+    //Página formulario equipos
+    <string name="main_form_equipments_title">Nuova squadra</string>
+    <string name="main_form_equipments_title_edit">Modifica squadra</string>
+    <string name="main_form_equipments_hint_name">Nome della squadra</string>
+    <string name="main_form_equipments_hint_brand">Marchio della squadra</string>
+    <string name="main_form_equipments_hint_model">Modello di attrezzatura</string>
+    <string name="main_form_equipments_hint_direction">Gestione della squadra</string>
+    <string name="main_form_equipments_hint_location">Posizione dell\'attrezzatura</string>
+
+    <string-array name="options_equipments">
+        <item>Seleziona un\'opzione</item>
+    </string-array>
+
 </resources>

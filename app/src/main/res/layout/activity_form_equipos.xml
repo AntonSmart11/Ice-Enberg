@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.revision.FormRevisionActivity">
+    tools:context=".user.equipos.FormEquiposActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,16 +12,13 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_form_revisiones"
+            android:id="@+id/toolbar_form_equipos"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
             app:titleTextColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/main_revision_title"/>
+            app:title="@string/main_form_equipments_title"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +37,7 @@
                     android:padding="10dp">
 
                     <EditText
-                        android:id="@+id/nombre_revision"
+                        android:id="@+id/nombre_equipo"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginStart="20dp"
@@ -49,11 +46,11 @@
                         android:ems="10"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:hint="@string/main_form_revision_hint_name"
+                        android:hint="@string/main_form_equipments_hint_name"
                         android:inputType="text"/>
 
                     <EditText
-                        android:id="@+id/costo_revision"
+                        android:id="@+id/marca_equipo"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginStart="20dp"
@@ -62,8 +59,44 @@
                         android:ems="10"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:hint="@string/main_form_revision_hint_cost"
-                        android:inputType="number"/>
+                        android:hint="@string/main_form_equipments_hint_brand"
+                        android:inputType="text"/>
+
+                    <EditText
+                        android:id="@+id/modelo_equipo"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:hint="@string/main_form_equipments_hint_model"
+                        android:inputType="text"/>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:textAlignment="center"
+                        android:entries="@array/options_equipments"/>
+
+
+                    <EditText
+                        android:id="@+id/direccion_equipo"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:hint="@string/main_form_equipments_hint_direction"
+                        android:inputType="text"/>
 
                     <LinearLayout
                         android:id="@+id/buttonsAdd"
@@ -83,7 +116,7 @@
                             android:backgroundTint="@color/primary"
                             android:text="@string/add"
                             android:textColor="@color/white"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"/>
 
                         <Button
                             android:id="@+id/btnCancel"
@@ -94,7 +127,8 @@
                             android:backgroundTint="@color/secondary"
                             android:text="@string/cancel"
                             android:textColor="@color/white"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"/>
+
                     </LinearLayout>
 
                     <LinearLayout

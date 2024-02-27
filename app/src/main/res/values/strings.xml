@@ -91,5 +91,25 @@
     <string name="main_dialog_location_delete_title">Remove Locations</string>
     <string name="main_dialog_location_delete_message">Do you want to remove this location?"</string>
 
+    //Página principal usuario
+    <string name="main_user_title">Dashboard</string>
+    <string name="main_user_services">My Services</string>
+    <string name="main_user_maintenance">Maintenances</string>
+    <string name="main_user_installation">Installations</string>
+    <string name="main_user_revision">Revisions</string>
+    <string name="main_user_equipment">Equipments</string>
+
+    //Página formulario equipos
+    <string name="main_form_equipments_title">New equipment</string>
+    <string name="main_form_equipments_title_edit">Edit equipment</string>
+    <string name="main_form_equipments_hint_name">Equipment name</string>
+    <string name="main_form_equipments_hint_brand">Equipment brand</string>
+    <string name="main_form_equipments_hint_model">Equipment model</string>
+    <string name="main_form_equipments_hint_direction">Equipment direction</string>
+    <string name="main_form_equipments_hint_location">Equipment location</string>
+
+    <string-array name="options_equipments">
+        <item>Select an option</item>
+    </string-array>
 
 </resources>
