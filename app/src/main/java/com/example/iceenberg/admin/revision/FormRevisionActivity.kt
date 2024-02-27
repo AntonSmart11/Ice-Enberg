@@ -1,4 +1,4 @@
-package com.example.iceenberg.revision
+package com.example.iceenberg.admin.revision
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

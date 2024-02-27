@@ -14,22 +14,46 @@
         android:theme="@style/Theme.IceEnberg"
         tools:targetApi="31">
         <activity
+            android:name=".user.equipos.FormEquiposActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.equipos.EquiposActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainUserActivty"
+            android:exported="false" />
+        <activity
             android:name=".idiomas.IdiomasActivity"
             android:exported="false" />
         <activity
-            android:name=".localizacion.FormLocalizacionActivity"
+            android:name=".admin.localizacion.FormLocalizacionActivity"
             android:exported="false" />
         <activity
-            android:name=".localizacion.LocalizacionActivity"
+            android:name=".admin.localizacion.LocalizacionActivity"
             android:exported="false" />
         <activity
-            android:name=".revision.FormRevisionActivity"
+            android:name=".admin.revision.FormRevisionActivity"
             android:exported="false" />
         <activity
-            android:name=".revision.RevisionActivity"
+            android:name=".admin.revision.RevisionActivity"
             android:exported="false" />
         <activity
             android:name=".MainAdminActivity"
+            android:exported="true" />
+        <activity
+            android:name=".admin.mantenimiento.FormMantenimientoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.mantenimiento.MantenimientoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.instalacion.FormInstalacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.instalacion.InstalacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop">
             <intent-filter>
@@ -38,21 +62,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".mantenimiento.FormMantenimientoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mantenimiento.MantenimientoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".instalacion.FormInstalacionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".instalacion.InstalacionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

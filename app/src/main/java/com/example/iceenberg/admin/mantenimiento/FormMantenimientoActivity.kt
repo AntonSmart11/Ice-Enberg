@@ -1,4 +1,4 @@
-package com.example.iceenberg.mantenimiento
+package com.example.iceenberg.admin.mantenimiento
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.iceenberg.Controllers.MaintenanceController
 import com.example.iceenberg.Database.DatabaseHelper
-import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.R
 import com.example.iceenberg.databinding.ActivityFormMantenimientoBinding

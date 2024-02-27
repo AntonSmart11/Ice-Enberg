@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.mantenimiento.MantenimientoActivity">
-
+    tools:context=".user.equipos.EquiposActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,17 +12,13 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_mantenimientos"
+            android:id="@+id/toolbar_equipos"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
             app:titleTextColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/main_maintenance_title"/>
-
+            app:title="@string/main_user_equipment"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,22 +26,22 @@
             android:background="@color/white">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mantenimientos_recyclerView"
+                android:id="@+id/equipos_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addMantenimiento"
+        android:id="@+id/addEquipos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         app:layout_anchorGravity="bottom|end"
-        app:tint="@android:color/white"
+        app:tint="@color/white"
         android:backgroundTint="@color/primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
