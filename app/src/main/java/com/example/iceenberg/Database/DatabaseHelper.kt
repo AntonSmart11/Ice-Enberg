@@ -10,6 +10,8 @@ import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.Objects.Revision
+import com.example.iceenberg.R
+import kotlin.coroutines.coroutineContext
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -59,8 +61,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val TABLE_EQUIPMENT = "equipment"
         private const val ID_EQUIPMENT = "id_equipment"
         private const val USER_EQUIPMENT = "id_user"
-        private const val LOCATION_EQUIPMENT = "id_locations"
         private const val NAME_EQUIPMENT = "name"
+        private const val LOCATION_EQUIPMENT = "location"
         private const val DIRECTION_EQUIPMENT = "direction"
         private const val BRAND_EQUIPMENT = "brand"
         private const val MODEL_EQUIPMENT = "model"
@@ -70,7 +72,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val ID_SERVICES = "id_services"
         private const val USER_SERVICES = "id_users"
         private const val EQUIPMENT_SERVICES = "id_equipment"
-        private const val TYPE_SERVICES = "id_type"
+        private const val TYPE_SERVICES = "type"
         private const val PRICE_SERVICES = "price"
     }
 
@@ -112,8 +114,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val TABLE_EQUIPMENT = ("CREATE TABLE " + TABLE_EQUIPMENT + "(" +
                 ID_EQUIPMENT + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 USER_EQUIPMENT + " INTEGER," +
-                LOCATION_EQUIPMENT + " INTEGER," +
                 NAME_EQUIPMENT + " TEXT," +
+                LOCATION_EQUIPMENT + " TEXT," +
                 DIRECTION_EQUIPMENT + " TEXT," +
                 BRAND_EQUIPMENT + " TEXT," +
                 MODEL_EQUIPMENT + " TEXT" +
@@ -123,7 +125,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 ID_SERVICES + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 USER_SERVICES + " INTEGER," +
                 EQUIPMENT_SERVICES + " INTEGER," +
-                TYPE_SERVICES + " INTEGER," +
+                TYPE_SERVICES + " TEXT," +
                 PRICE_SERVICES + " REAL" +
                 ")")
 
@@ -390,5 +392,31 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
 
+    //Equipos
+
+    //Obtener localización nombre
+    @SuppressLint("Range")
+    fun getNameLocations(context: Context) : MutableList<String> {
+        val locations = mutableListOf<String>()
+        val db = this.readableDatabase
+
+        locations.add(context.getString(R.string.main_form_equipments_hint_location))
+
+        val query = "SELECT * FROM $TABLE_LOCATIONS"
+        val cursor: Cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+
+                locations.add(nombre)
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return locations
+    }
 }
 

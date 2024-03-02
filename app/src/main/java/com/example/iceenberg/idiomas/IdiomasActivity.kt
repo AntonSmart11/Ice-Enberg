@@ -84,7 +84,7 @@ class IdiomasActivity : AppCompatActivity() {
                         idioma = "it"
                     }
 
-                    myApp.cambiarIdioma(idioma)
+                    cambiarIdioma(idioma)
 
                     recreating = false
 
