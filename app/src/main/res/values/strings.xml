@@ -18,6 +18,7 @@
     <string name="errorDelete">Error deleting data</string>
 
     <string name="empty">Empty fields</string>
+    <string name="emptySpinner">Select a valid value in the spinner</string>
 
     //Idiomas
     <string name="main_language_title">Languages</string>
@@ -106,10 +107,10 @@
     <string name="main_form_equipments_hint_brand">Equipment brand</string>
     <string name="main_form_equipments_hint_model">Equipment model</string>
     <string name="main_form_equipments_hint_direction">Equipment direction</string>
-    <string name="main_form_equipments_hint_location">Equipment location</string>
+    <string name="main_form_equipments_hint_location">Select an location</string>
 
     <string-array name="options_equipments">
-        <item>Select an option</item>
+        <item>Select an location</item>
     </string-array>
 
 </resources>

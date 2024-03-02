@@ -76,6 +76,7 @@
                         android:inputType="text"/>
 
                     <Spinner
+                        android:id="@+id/localizacion_equipo"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginStart="20dp"

@@ -16,6 +16,7 @@
     <string name="errorDelete">Errore durante l\'eliminazione dei dati</string>
 
     <string name="empty">Campi vuoti</string>
+    <string name="emptySpinner">Selezionare un valore valido nello spinner</string>
 
     //Idiomas
     <string name="main_language_title">Le lingue</string>
@@ -109,10 +110,10 @@
     <string name="main_form_equipments_hint_brand">Marchio della squadra</string>
     <string name="main_form_equipments_hint_model">Modello di attrezzatura</string>
     <string name="main_form_equipments_hint_direction">Gestione della squadra</string>
-    <string name="main_form_equipments_hint_location">Posizione dell\'attrezzatura</string>
+    <string name="main_form_equipments_hint_location">Seleziona un\'posizione</string>
 
     <string-array name="options_equipments">
-        <item>Seleziona un\'opzione</item>
+        <item>Seleziona un\'posizione</item>
     </string-array>
 
 </resources>
