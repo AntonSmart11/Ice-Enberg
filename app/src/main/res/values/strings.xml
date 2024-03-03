@@ -90,7 +90,7 @@
 
     //alert dialog locación
     <string name="main_dialog_location_delete_title">Remove Locations</string>
-    <string name="main_dialog_location_delete_message">Do you want to remove this location?"</string>
+    <string name="main_dialog_location_delete_message">Do you want to remove this location?</string>
 
     //Página principal usuario
     <string name="main_user_title">Dashboard</string>
@@ -112,5 +112,9 @@
     <string-array name="options_equipments">
         <item>Select an location</item>
     </string-array>
+
+    //alert dialog equipo
+    <string name="main_dialog_equipment_delete_title">Remove Equipment</string>
+    <string name="main_dialog_equipment_delete_message">Do you want to remove this equipment?</string>
 
 </resources>
