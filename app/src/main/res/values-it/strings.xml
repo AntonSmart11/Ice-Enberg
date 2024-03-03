@@ -93,7 +93,7 @@
 
     //alert dialog locación
     <string name="main_dialog_location_delete_title">Elimina posizione</string>
-    <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?"</string>
+    <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?</string>
 
     //Página principal usuario
     <string name="main_user_title">Pannello dei Servizi</string>
@@ -115,5 +115,9 @@
     <string-array name="options_equipments">
         <item>Seleziona un\'posizione</item>
     </string-array>
+
+    //alert dialog equipo
+    <string name="main_dialog_equipment_delete_title">Elimina squadra</string>
+    <string name="main_dialog_equipment_delete_message">Vuoi rimuovere questa squadra?</string>
 
 </resources>

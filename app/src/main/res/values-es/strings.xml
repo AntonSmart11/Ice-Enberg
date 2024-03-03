@@ -91,7 +91,7 @@
 
     //alert dialog locación
     <string name="main_dialog_location_delete_title">Eliminar Localización</string>
-    <string name="main_dialog_location_delete_message">¿Desea eliminar esta localización?"</string>
+    <string name="main_dialog_location_delete_message">¿Desea eliminar esta localización?</string>
 
     //Página principal usuario
     <string name="main_user_title">Panel de Servicios</string>
@@ -113,5 +113,9 @@
     <string-array name="options_equipments">
         <item>Selecciona una localización</item>
     </string-array>
+
+    //alert dialog equipo
+    <string name="main_dialog_equipment_delete_title">Eliminar Equipo</string>
+    <string name="main_dialog_equipment_delete_message">¿Desea eliminar este equipo?</string>
 
 </resources>
