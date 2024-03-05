@@ -10,6 +10,7 @@ import com.example.iceenberg.admin.mantenimiento.MantenimientoActivity
 import com.example.iceenberg.databinding.ActivityMainUserBinding
 import com.example.iceenberg.idiomas.IdiomasActivity
 import com.example.iceenberg.user.equipos.EquiposActivity
+import com.example.iceenberg.user.revisiones.RevisionServiceActivity
 import com.google.android.material.navigation.NavigationView
 
 class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -61,6 +62,11 @@ class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         binding.equiposPage.setOnClickListener {
             val intent = Intent(this, EquiposActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.revisionPage.setOnClickListener {
+            val intent = Intent(this, RevisionServiceActivity::class.java)
             startActivity(intent)
         }
     }

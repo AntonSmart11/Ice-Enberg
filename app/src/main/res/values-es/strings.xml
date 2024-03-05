@@ -18,6 +18,8 @@
     <string name="empty">Campos vacíos</string>
     <string name="emptySpinner">Selecciona un valor válido en el spinner</string>
 
+    <string name="total">Total: </string>
+
     //Idiomas
     <string name="main_language_title">Idiomas</string>
     <string name="main_select_language">Seleccione el idioma</string>
@@ -117,5 +119,10 @@
     //alert dialog equipo
     <string name="main_dialog_equipment_delete_title">Eliminar Equipo</string>
     <string name="main_dialog_equipment_delete_message">¿Desea eliminar este equipo?</string>
+
+    //Servicio revisión
+    <string-array name="options_revision">
+        <item>Selecciona una revisión</item>
+    </string-array>
 
 </resources>

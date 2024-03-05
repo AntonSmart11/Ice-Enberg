@@ -75,6 +75,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val EQUIPMENT_SERVICES = "id_equipment"
         private const val TYPE_SERVICES = "type"
         private const val PRICE_SERVICES = "price"
+        private const val FINISHED_SERVICES = "finish"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -127,7 +128,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 USER_SERVICES + " INTEGER," +
                 EQUIPMENT_SERVICES + " INTEGER," +
                 TYPE_SERVICES + " TEXT," +
-                PRICE_SERVICES + " REAL" +
+                PRICE_SERVICES + " REAL," +
+                FINISHED_SERVICES + " INTEGER" +
                 ")")
 
         db?.execSQL(TABLE_USERS)
