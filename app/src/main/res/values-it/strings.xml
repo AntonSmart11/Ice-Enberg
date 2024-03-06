@@ -55,6 +55,8 @@
     <string name="main_dialog_user_delete_title">Elimina utente</string>
     <string name="main_dialog_user_delete_message">Vuoi eliminare il tuo utente? \nQuesta azione non può essere annullata</string>
 
+    <string name="total">Totale: </string>
+
     //Idiomas
     <string name="main_language_title">Le lingue</string>
     <string name="main_select_language">Seleziona la lingua</string>
@@ -130,7 +132,7 @@
 
     //alert dialog locación
     <string name="main_dialog_location_delete_title">Elimina posizione</string>
-    <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?"</string>
+    <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?</string>
 
     //Página principal usuario
     <string name="main_user_title">Pannello dei Servizi</string>
@@ -151,6 +153,15 @@
 
     <string-array name="options_equipments">
         <item>Seleziona un\'posizione</item>
+    </string-array>
+
+    //alert dialog equipo
+    <string name="main_dialog_equipment_delete_title">Elimina squadra</string>
+    <string name="main_dialog_equipment_delete_message">Vuoi rimuovere questa squadra?</string>
+
+    //Servicio revisión
+    <string-array name="options_revision">
+        <item>Seleziona un\'revisione</item>
     </string-array>
 
 </resources>

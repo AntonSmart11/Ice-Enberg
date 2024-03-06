@@ -30,6 +30,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".user.revisiones.RevisionServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".user.equipos.FormEquiposActivity"
             android:exported="false" />
         <activity

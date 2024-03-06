@@ -6,6 +6,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.iceenberg.Objects.Equipments
 import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
@@ -75,6 +76,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val EQUIPMENT_SERVICES = "id_equipment"
         private const val TYPE_SERVICES = "type"
         private const val PRICE_SERVICES = "price"
+        private const val FINISHED_SERVICES = "finish"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -127,7 +129,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 USER_SERVICES + " INTEGER," +
                 EQUIPMENT_SERVICES + " INTEGER," +
                 TYPE_SERVICES + " TEXT," +
-                PRICE_SERVICES + " REAL" +
+                PRICE_SERVICES + " REAL," +
+                FINISHED_SERVICES + " INTEGER" +
                 ")")
 
         db?.execSQL(TABLE_USERS)
@@ -486,6 +489,76 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
 
         return locations
+    }
+
+    //Obtener equipos
+    @SuppressLint("Range")
+    fun getEquipments() : MutableList<Equipments> {
+        val equipments = mutableListOf<Equipments>()
+        val db = this.readableDatabase
+
+        val query = "SELECT * FROM $TABLE_EQUIPMENT"
+        val cursor: Cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(ID_EQUIPMENT))
+                val user = cursor.getInt(cursor.getColumnIndex(USER_EQUIPMENT))
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+                val localizacion = cursor.getString(cursor.getColumnIndex(LOCATION_EQUIPMENT))
+                val direccion = cursor.getString(cursor.getColumnIndex(DIRECTION_EQUIPMENT))
+                val marca = cursor.getString(cursor.getColumnIndex(BRAND_EQUIPMENT))
+                val modelo = cursor.getString(cursor.getColumnIndex(MODEL_EQUIPMENT))
+
+                equipments.add(Equipments(id, user, nombre, localizacion, direccion, marca, modelo))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return equipments
+    }
+
+    //insertar revisiones
+    fun insertEquipments(equipments: Equipments) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(USER_EQUIPMENT, equipments.user)
+        values.put(NAME_EQUIPMENT, equipments.name)
+        values.put(BRAND_EQUIPMENT, equipments.brand)
+        values.put(MODEL_EQUIPMENT, equipments.model)
+        values.put(LOCATION_EQUIPMENT, equipments.location)
+        values.put(DIRECTION_EQUIPMENT, equipments.direction)
+        val result = db.insert(TABLE_EQUIPMENT, null, values)
+
+        return result != -1L
+    }
+
+    //Actualizar
+    fun updateEquipment(equipments: Equipments) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(ID_EQUIPMENT, equipments.id)
+        contentValues.put(USER_EQUIPMENT, equipments.user)
+        contentValues.put(NAME_EQUIPMENT, equipments.name)
+        contentValues.put(BRAND_EQUIPMENT, equipments.brand)
+        contentValues.put(MODEL_EQUIPMENT, equipments.model)
+        contentValues.put(LOCATION_EQUIPMENT, equipments.location)
+        contentValues.put(DIRECTION_EQUIPMENT, equipments.direction)
+        val result = db.update(TABLE_EQUIPMENT, contentValues, "$ID_EQUIPMENT = ?", arrayOf(equipments.id.toString()));
+
+        return result > -1L
+    }
+
+    //Eliminar
+    fun deleteEquipment(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_EQUIPMENT, id)
+        val result = db.delete(TABLE_EQUIPMENT, ID_EQUIPMENT + "=" + id, null)
+
+        return result != -1
     }
 }
 

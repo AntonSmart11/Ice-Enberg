@@ -55,6 +55,8 @@
     <string name="main_dialog_user_delete_title">Eliminar usuario</string>
     <string name="main_dialog_user_delete_message">¿Desea eliminar su usuario? \nEsta acción no se podrá deshacer</string>
 
+    <string name="total">Total: </string>
+
     //Idiomas
     <string name="main_language_title">Idiomas</string>
     <string name="main_select_language">Seleccione el idioma</string>
@@ -128,7 +130,7 @@
 
     //alert dialog locación
     <string name="main_dialog_location_delete_title">Eliminar Localización</string>
-    <string name="main_dialog_location_delete_message">¿Desea eliminar esta localización?"</string>
+    <string name="main_dialog_location_delete_message">¿Desea eliminar esta localización?</string>
 
     //Página principal usuario
     <string name="main_user_title">Panel de Servicios</string>
@@ -149,6 +151,15 @@
 
     <string-array name="options_equipments">
         <item>Selecciona una localización</item>
+    </string-array>
+
+    //alert dialog equipo
+    <string name="main_dialog_equipment_delete_title">Eliminar Equipo</string>
+    <string name="main_dialog_equipment_delete_message">¿Desea eliminar este equipo?</string>
+
+    //Servicio revisión
+    <string-array name="options_revision">
+        <item>Selecciona una revisión</item>
     </string-array>
 
 </resources>

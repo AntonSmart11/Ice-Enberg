@@ -14,6 +14,7 @@ import com.example.iceenberg.databinding.ActivityMainUserBinding
 import com.example.iceenberg.idiomas.IdiomasActivity
 import com.example.iceenberg.user.equipos.EquiposActivity
 import com.example.iceenberg.user.profile.profileUserActivity
+import com.example.iceenberg.user.revisiones.RevisionServiceActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -88,6 +89,11 @@ class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         binding.equiposPage.setOnClickListener {
             val intent = Intent(this, EquiposActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.revisionPage.setOnClickListener {
+            val intent = Intent(this, RevisionServiceActivity::class.java)
             startActivity(intent)
         }
     }
