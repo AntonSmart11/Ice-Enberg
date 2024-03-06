@@ -42,11 +42,6 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Manejar clics en elementos del menú
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.menu_idiomas -> {
-                    val intent = Intent(this, IdiomasActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
                 R.id.cerrar_sesion -> {
                     // Lógica para la opción 2
                     true

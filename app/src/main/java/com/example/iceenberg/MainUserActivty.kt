@@ -64,11 +64,6 @@ class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSele
                     startActivity(userIntent)
                     true
                 }
-                R.id.menu_idiomas -> {
-                    val intent = Intent(this, IdiomasActivity::class.java)
-                    startActivity(intent)
-                    true
-                }
                 R.id.cerrar_sesion -> {
                     FirebaseAuth.getInstance().signOut()
                     val intent = Intent(this, LoginActivity::class.java)

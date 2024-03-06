@@ -5,10 +5,6 @@
         android:icon="@drawable/person"
         android:title="@string/profile"/>
     <item
-        android:id="@+id/menu_idiomas"
-        android:icon="@drawable/language"
-        android:title="@string/language"/>
-    <item
         android:id="@+id/cerrar_sesion"
         android:icon="@drawable/exit"
         android:title="@string/sign_out"/>
