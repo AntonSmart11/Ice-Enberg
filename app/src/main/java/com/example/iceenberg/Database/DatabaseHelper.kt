@@ -10,6 +10,7 @@ import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.Objects.Revision
+import com.example.iceenberg.Objects.User
 import com.example.iceenberg.R
 import kotlin.coroutines.coroutineContext
 
@@ -150,6 +151,74 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     //Functions
+
+    //Usuarios
+    //Traer los mantenimientos
+
+    @SuppressLint("Range")
+    fun getUserByEmail(email: String): User? {
+        val db = this.readableDatabase
+        var user: User? = null
+        val selectQuery = "SELECT * FROM $TABLE_USERS WHERE $EMAIL_USER = ?"
+        val cursor = db.rawQuery(selectQuery, arrayOf(email))
+        if (cursor.moveToFirst()) {
+            val id = cursor.getInt(cursor.getColumnIndex(ID_USER))
+            val name = cursor.getString(cursor.getColumnIndex(NAME_USER))
+            val lastName = cursor.getString(cursor.getColumnIndex(LAST_USER))
+            val email = cursor.getString(cursor.getColumnIndex(EMAIL_USER))
+            val password = cursor.getString(cursor.getColumnIndex(PASSWORD_USER))
+            val phone = cursor.getString(cursor.getColumnIndex(PHONE_USER))
+            val type = cursor.getInt(cursor.getColumnIndex(TYPE_USER))
+
+            user = User(id, name, lastName, email, password, phone, type)
+        }
+        cursor.close()
+        db.close()
+        return user
+    }
+
+    // Insertar usuario
+    fun insertUser(name: String, last: String, email: String, password: String, phone: String, type: Int) :Boolean{
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_USER,name)
+        values.put(LAST_USER,last)
+        values.put(EMAIL_USER,email)
+        values.put(PASSWORD_USER,password)
+        values.put(PHONE_USER,phone)
+        values.put(TYPE_USER,type)
+
+        val result = db.insert(TABLE_USERS, null, values)
+
+
+        //Regresar si fue exitosa o no la inserción
+        return result != -1L
+    }
+
+    //Actualizar usuario
+    fun updateUser(id: Int, newName: String, newLast: String, newEmail: String, newPassword: String, newPhone: String) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(NAME_USER, newName)
+        contentValues.put(LAST_USER, newLast)
+        contentValues.put(EMAIL_USER, newEmail)
+        contentValues.put(PASSWORD_USER, newPassword)
+        contentValues.put(PHONE_USER, newPhone)
+
+        val result = db.update(TABLE_USERS, contentValues, "$ID_USER = ?", arrayOf(id.toString()));
+
+        return result > -1L
+    }
+
+    //eliminar usuario
+    fun deleteUser(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_USER, id)
+        val result = db.delete(TABLE_USERS, ID_USER + "=" + id, null)
+
+        return result != -1
+    }
 
     //Mantenimientos
 

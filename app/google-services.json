@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117256076553",
+    "project_id": "iceenberg",
+    "storage_bucket": "iceenberg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117256076553:android:df7aaeb859aff33d5f27d8",
+        "android_client_info": {
+          "package_name": "com.example.iceenberg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARR6PyMhFSDyFTejkmDn3t3_nRkC-q-VE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
