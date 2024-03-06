@@ -3,9 +3,12 @@
 
     <string name="add">Add</string>
     <string name="edit">Edit</string>
+    <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+    <string name="accept">Accept</string>
 
+    <string name="profile">Profile</string>
     <string name="language">Languages</string>
     <string name="sign_out">Disconnect</string>
 
@@ -19,6 +22,40 @@
 
     <string name="empty">Empty fields</string>
     <string name="emptySpinner">Select a valid value in the spinner</string>
+
+    //login
+    <string name="main_login_title_and_btn_login">Sign in</string>
+    <string name="main_login_hint_email">Email</string>
+    <string name="main_login_hint_password">Password</string>
+    <string name="main_login_ask_account">You do not have an account?</string>
+    <string name="main_login_create_account">Create account</string>
+
+    //alert login
+    <string name="main_dialog_login_title">Failed to login</string>
+    <string name="main_dialog_login_message">An error occurred while logging in</string>
+
+    //register
+    <string name="main_register_title_and_btn_register">Sign up</string>
+    <string name="main_register_ask_account">Do you have an account?</string>
+
+    //alert registar
+    <string name="main_dialog_register_title">Error registering user</string>
+    <string name="main_dialog_register_message">An error occurred while registering the user</string>
+    <string name="main_dialog_register_message_characters">The password must be at least 6 characters</string>
+
+    //perfil usuario
+    <string name="main_form_profile_hint_name">Name</string>
+    <string name="main_form_profile_hint_lastName">Last name</string>
+    <string name="main_form_profile_hint_email">Email</string>
+    <string name="main_form_profile_hint_password">Password</string>
+    <string name="main_form_profile_hint_phone">Phone</string>
+    <string name="main_toast_profile_update">Data updated correctly</string>
+
+    //alert user
+    <string name="main_dialog_user_update_title">Error updating data</string>
+    <string name="main_dialog_user_update_message">An error occurred while trying to update the data</string>
+    <string name="main_dialog_user_delete_title">Delete user</string>
+    <string name="main_dialog_user_delete_message">Do you want to delete your user? \nThis action cannot be undone</string>
 
     <string name="total">Total: </string>
 
