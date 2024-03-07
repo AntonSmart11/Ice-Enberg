@@ -1,4 +1,4 @@
-package com.example.iceenberg.localizacion
+package com.example.iceenberg.admin.localizacion
 
 import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity

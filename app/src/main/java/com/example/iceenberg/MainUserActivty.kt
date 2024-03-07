@@ -3,24 +3,29 @@ package com.example.iceenberg
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.ActionBarDrawerToggle
-import com.example.iceenberg.databinding.ActivityMainAdminBinding
 import android.view.Gravity
 import android.view.MenuItem
-import com.example.iceenberg.idiomas.IdiomasActivity
-import com.example.iceenberg.admin.instalacion.InstalacionActivity
-import com.example.iceenberg.admin.localizacion.LocalizacionActivity
+import androidx.appcompat.app.ActionBarDrawerToggle
+import com.example.iceenberg.Controllers.InstallationController
+import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.admin.mantenimiento.MantenimientoActivity
-import com.example.iceenberg.admin.revision.RevisionActivity
+import com.example.iceenberg.auth.LoginActivity
+import com.example.iceenberg.databinding.ActivityMainUserBinding
+import com.example.iceenberg.idiomas.IdiomasActivity
+import com.example.iceenberg.user.equipos.EquiposActivity
+import com.example.iceenberg.user.profile.profileUserActivity
+import com.example.iceenberg.user.revisiones.RevisionServiceActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
-class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var binding: ActivityMainAdminBinding
+    private lateinit var binding: ActivityMainUserBinding
+    private lateinit var dbHelper: DatabaseHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_admin)
-        binding = ActivityMainAdminBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main_user)
+        binding = ActivityMainUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val toolbar = binding.toolbar
@@ -33,6 +38,14 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu)
 
+        //recibiendo parametros
+        val bundle = intent.extras
+        val email = bundle?.getString("email")
+
+        dbHelper = DatabaseHelper(this)
+
+        val user = dbHelper.getUserByEmail(email ?: "")
+
         val toggle = ActionBarDrawerToggle(
             this, binding.drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -42,8 +55,21 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Manejar clics en elementos del menú
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.menu_perfil -> {
+                    val userIntent = Intent(this, profileUserActivity::class.java).apply {
+                        //pasar parametros
+                        putExtra("email", email)
+
+                    }
+                    startActivity(userIntent)
+                    true
+                }
                 R.id.cerrar_sesion -> {
-                    // Lógica para la opción 2
+                    FirebaseAuth.getInstance().signOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
                     true
                 }
                 else -> false
@@ -56,20 +82,13 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         //Manejar clic en los botones para ir a las páginas correspondientes
 
-        binding.mantenimientoPage.setOnClickListener {
-            val intent = Intent(this, MantenimientoActivity::class.java)
+        binding.equiposPage.setOnClickListener {
+            val intent = Intent(this, EquiposActivity::class.java)
             startActivity(intent)
         }
-        binding.instalacionPage.setOnClickListener {
-            val intent = Intent(this, InstalacionActivity::class.java)
-            startActivity(intent)
-        }
+
         binding.revisionPage.setOnClickListener {
-            val intent = Intent(this, RevisionActivity::class.java)
-            startActivity(intent)
-        }
-        binding.localizacionPage.setOnClickListener {
-            val intent = Intent(this, LocalizacionActivity::class.java)
+            val intent = Intent(this, RevisionServiceActivity::class.java)
             startActivity(intent)
         }
     }
@@ -84,5 +103,4 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

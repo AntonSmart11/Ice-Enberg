@@ -6,10 +6,14 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.iceenberg.Objects.Equipments
 import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.Objects.Revision
+import com.example.iceenberg.Objects.User
+import com.example.iceenberg.R
+import kotlin.coroutines.coroutineContext
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -59,7 +63,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val TABLE_EQUIPMENT = "equipment"
         private const val ID_EQUIPMENT = "id_equipment"
         private const val USER_EQUIPMENT = "id_user"
-        private const val LOCATION_EQUIPMENT = "id_locations"
+        private const val NAME_EQUIPMENT = "name"
+        private const val LOCATION_EQUIPMENT = "location"
+        private const val DIRECTION_EQUIPMENT = "direction"
         private const val BRAND_EQUIPMENT = "brand"
         private const val MODEL_EQUIPMENT = "model"
 
@@ -68,8 +74,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         private const val ID_SERVICES = "id_services"
         private const val USER_SERVICES = "id_users"
         private const val EQUIPMENT_SERVICES = "id_equipment"
-        private const val TYPE_SERVICES = "id_type"
+        private const val TYPE_SERVICES = "type"
         private const val PRICE_SERVICES = "price"
+        private const val FINISHED_SERVICES = "finish"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -110,7 +117,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val TABLE_EQUIPMENT = ("CREATE TABLE " + TABLE_EQUIPMENT + "(" +
                 ID_EQUIPMENT + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 USER_EQUIPMENT + " INTEGER," +
-                LOCATION_EQUIPMENT + " INTEGER," +
+                NAME_EQUIPMENT + " TEXT," +
+                LOCATION_EQUIPMENT + " TEXT," +
+                DIRECTION_EQUIPMENT + " TEXT," +
                 BRAND_EQUIPMENT + " TEXT," +
                 MODEL_EQUIPMENT + " TEXT" +
                 ")")
@@ -119,8 +128,9 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 ID_SERVICES + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 USER_SERVICES + " INTEGER," +
                 EQUIPMENT_SERVICES + " INTEGER," +
-                TYPE_SERVICES + " INTEGER," +
-                PRICE_SERVICES + " REAL" +
+                TYPE_SERVICES + " TEXT," +
+                PRICE_SERVICES + " REAL," +
+                FINISHED_SERVICES + " INTEGER" +
                 ")")
 
         db?.execSQL(TABLE_USERS)
@@ -144,6 +154,74 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     //Functions
+
+    //Usuarios
+    //Traer los mantenimientos
+
+    @SuppressLint("Range")
+    fun getUserByEmail(email: String): User? {
+        val db = this.readableDatabase
+        var user: User? = null
+        val selectQuery = "SELECT * FROM $TABLE_USERS WHERE $EMAIL_USER = ?"
+        val cursor = db.rawQuery(selectQuery, arrayOf(email))
+        if (cursor.moveToFirst()) {
+            val id = cursor.getInt(cursor.getColumnIndex(ID_USER))
+            val name = cursor.getString(cursor.getColumnIndex(NAME_USER))
+            val lastName = cursor.getString(cursor.getColumnIndex(LAST_USER))
+            val email = cursor.getString(cursor.getColumnIndex(EMAIL_USER))
+            val password = cursor.getString(cursor.getColumnIndex(PASSWORD_USER))
+            val phone = cursor.getString(cursor.getColumnIndex(PHONE_USER))
+            val type = cursor.getInt(cursor.getColumnIndex(TYPE_USER))
+
+            user = User(id, name, lastName, email, password, phone, type)
+        }
+        cursor.close()
+        db.close()
+        return user
+    }
+
+    // Insertar usuario
+    fun insertUser(name: String, last: String, email: String, password: String, phone: String, type: Int) :Boolean{
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(NAME_USER,name)
+        values.put(LAST_USER,last)
+        values.put(EMAIL_USER,email)
+        values.put(PASSWORD_USER,password)
+        values.put(PHONE_USER,phone)
+        values.put(TYPE_USER,type)
+
+        val result = db.insert(TABLE_USERS, null, values)
+
+
+        //Regresar si fue exitosa o no la inserción
+        return result != -1L
+    }
+
+    //Actualizar usuario
+    fun updateUser(id: Int, newName: String, newLast: String, newEmail: String, newPassword: String, newPhone: String) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(NAME_USER, newName)
+        contentValues.put(LAST_USER, newLast)
+        contentValues.put(EMAIL_USER, newEmail)
+        contentValues.put(PASSWORD_USER, newPassword)
+        contentValues.put(PHONE_USER, newPhone)
+
+        val result = db.update(TABLE_USERS, contentValues, "$ID_USER = ?", arrayOf(id.toString()));
+
+        return result > -1L
+    }
+
+    //eliminar usuario
+    fun deleteUser(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_USER, id)
+        val result = db.delete(TABLE_USERS, ID_USER + "=" + id, null)
+
+        return result != -1
+    }
 
     //Mantenimientos
 
@@ -386,5 +464,101 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
 
+    //Equipos
+
+    //Obtener localización nombre
+    @SuppressLint("Range")
+    fun getNameLocations(context: Context) : MutableList<String> {
+        val locations = mutableListOf<String>()
+        val db = this.readableDatabase
+
+        locations.add(context.getString(R.string.main_form_equipments_hint_location))
+
+        val query = "SELECT * FROM $TABLE_LOCATIONS"
+        val cursor: Cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+
+                locations.add(nombre)
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return locations
+    }
+
+    //Obtener equipos
+    @SuppressLint("Range")
+    fun getEquipments() : MutableList<Equipments> {
+        val equipments = mutableListOf<Equipments>()
+        val db = this.readableDatabase
+
+        val query = "SELECT * FROM $TABLE_EQUIPMENT"
+        val cursor: Cursor = db.rawQuery(query, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(ID_EQUIPMENT))
+                val user = cursor.getInt(cursor.getColumnIndex(USER_EQUIPMENT))
+                val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+                val localizacion = cursor.getString(cursor.getColumnIndex(LOCATION_EQUIPMENT))
+                val direccion = cursor.getString(cursor.getColumnIndex(DIRECTION_EQUIPMENT))
+                val marca = cursor.getString(cursor.getColumnIndex(BRAND_EQUIPMENT))
+                val modelo = cursor.getString(cursor.getColumnIndex(MODEL_EQUIPMENT))
+
+                equipments.add(Equipments(id, user, nombre, localizacion, direccion, marca, modelo))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return equipments
+    }
+
+    //insertar revisiones
+    fun insertEquipments(equipments: Equipments) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(USER_EQUIPMENT, equipments.user)
+        values.put(NAME_EQUIPMENT, equipments.name)
+        values.put(BRAND_EQUIPMENT, equipments.brand)
+        values.put(MODEL_EQUIPMENT, equipments.model)
+        values.put(LOCATION_EQUIPMENT, equipments.location)
+        values.put(DIRECTION_EQUIPMENT, equipments.direction)
+        val result = db.insert(TABLE_EQUIPMENT, null, values)
+
+        return result != -1L
+    }
+
+    //Actualizar
+    fun updateEquipment(equipments: Equipments) : Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(ID_EQUIPMENT, equipments.id)
+        contentValues.put(USER_EQUIPMENT, equipments.user)
+        contentValues.put(NAME_EQUIPMENT, equipments.name)
+        contentValues.put(BRAND_EQUIPMENT, equipments.brand)
+        contentValues.put(MODEL_EQUIPMENT, equipments.model)
+        contentValues.put(LOCATION_EQUIPMENT, equipments.location)
+        contentValues.put(DIRECTION_EQUIPMENT, equipments.direction)
+        val result = db.update(TABLE_EQUIPMENT, contentValues, "$ID_EQUIPMENT = ?", arrayOf(equipments.id.toString()));
+
+        return result > -1L
+    }
+
+    //Eliminar
+    fun deleteEquipment(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_EQUIPMENT, id)
+        val result = db.delete(TABLE_EQUIPMENT, ID_EQUIPMENT + "=" + id, null)
+
+        return result != -1
+    }
 }
 

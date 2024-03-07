@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <application
         android:name=".MyApp"
@@ -12,26 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IceEnberg"
-        tools:targetApi="31">
+        tools:targetApi="31" >
         <activity
-            android:name=".idiomas.IdiomasActivity"
+            android:name=".user.profile.profileUserActivity"
             android:exported="false" />
         <activity
-            android:name=".localizacion.FormLocalizacionActivity"
+            android:name=".auth.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".localizacion.LocalizacionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".revision.FormRevisionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".revision.RevisionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainAdminActivity"
+            android:name=".auth.LoginActivity"
             android:exported="true"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,16 +30,46 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mantenimiento.FormMantenimientoActivity"
+            android:name=".user.revisiones.RevisionServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".mantenimiento.MantenimientoActivity"
+            android:name=".user.equipos.FormEquiposActivity"
             android:exported="false" />
         <activity
-            android:name=".instalacion.FormInstalacionActivity"
+            android:name=".user.equipos.EquiposActivity"
             android:exported="false" />
         <activity
-            android:name=".instalacion.InstalacionActivity"
+            android:name=".MainUserActivty"
+            android:exported="false" />
+        <activity
+            android:name=".idiomas.IdiomasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.localizacion.FormLocalizacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.localizacion.LocalizacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.revision.FormRevisionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.revision.RevisionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainAdminActivity"
+            android:exported="true" />
+        <activity
+            android:name=".admin.mantenimiento.FormMantenimientoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.mantenimiento.MantenimientoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.instalacion.FormInstalacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.instalacion.InstalacionActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

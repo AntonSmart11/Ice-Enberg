@@ -4,18 +4,58 @@
 
     <string name="add">Aggiungere</string>
     <string name="edit">Modificare</string>
+    <string name="save">Salva</string>
     <string name="cancel">Annulla</string>
     <string name="delete">Eliminare</string>
+    <string name="accept">Accettare</string>
 
+    <string name="profile">Profilo</string>
     <string name="language">Le lingue</string>
     <string name="sign_out">Disconnettersi</string>
 
-    <string name="successInsert">Inserimento riuscito</string>
+    <string name="successInsert"><Ins></Ins>erimento riuscito</string>
     <string name="errorInsert">Errore nell\'inserimento dei dati</string>
     <string name="successDelete">Rimozione riuscita</string>
     <string name="errorDelete">Errore durante l\'eliminazione dei dati</string>
 
     <string name="empty">Campi vuoti</string>
+    <string name="emptySpinner">Selezionare un valore valido nello spinner</string>
+
+    //login
+    <string name="main_login_title_and_btn_login">Login</string>
+    <string name="main_login_hint_email">Posta</string>
+    <string name="main_login_hint_password">Parola d\'ordine</string>
+    <string name="main_login_ask_account">Non hai un account?</string>
+    <string name="main_login_create_account">Creare un account</string>
+
+    //alert login
+    <string name="main_dialog_login_title">Accesso non riuscito</string>
+    <string name="main_dialog_login_message">Si è verificato un errore durante l\'accesso</string>
+
+    //register
+    <string name="main_register_title_and_btn_register">Registrare</string>
+    <string name="main_register_ask_account">Hai un account?</string>
+
+    //alert registar
+    <string name="main_dialog_register_title">Errore durante la registrazione dell\'utente</string>
+    <string name="main_dialog_register_message">Si è verificato un errore durante la registrazione dell\'utente</string>
+    <string name="main_dialog_register_message_characters">La password deve contenere almeno 6 caratteri</string>
+
+    //perfil usuario
+    <string name="main_form_profile_hint_name">Nome</string>
+    <string name="main_form_profile_hint_lastName">Cognome</string>
+    <string name="main_form_profile_hint_email">Posta</string>
+    <string name="main_form_profile_hint_password">Parola d\'ordine</string>
+    <string name="main_form_profile_hint_phone">Telefono</string>
+    <string name="main_toast_profile_update">Dati aggiornati correttamente</string>
+
+    //alert user
+    <string name="main_dialog_user_update_title">Errore durante l\'aggiornamento dei dati</string>
+    <string name="main_dialog_user_update_message">Si è verificato un errore durante il tentativo di aggiornare i dati</string>
+    <string name="main_dialog_user_delete_title">Elimina utente</string>
+    <string name="main_dialog_user_delete_message">Vuoi eliminare il tuo utente? \nQuesta azione non può essere annullata</string>
+
+    <string name="total">Totale: </string>
 
     //Idiomas
     <string name="main_language_title">Le lingue</string>
@@ -92,6 +132,36 @@
 
     //alert dialog locación
     <string name="main_dialog_location_delete_title">Elimina posizione</string>
-    <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?"</string>
+    <string name="main_dialog_location_delete_message">Vuoi rimuovere questa posizione?</string>
+
+    //Página principal usuario
+    <string name="main_user_title">Pannello dei Servizi</string>
+    <string name="main_user_services">I miei Servizi</string>
+    <string name="main_user_maintenance">Manutenzione</string>
+    <string name="main_user_installation">Strutture</string>
+    <string name="main_user_revision">Recensioni</string>
+    <string name="main_user_equipment">Attrezzatura</string>
+
+    //Página formulario equipos
+    <string name="main_form_equipments_title">Nuova squadra</string>
+    <string name="main_form_equipments_title_edit">Modifica squadra</string>
+    <string name="main_form_equipments_hint_name">Nome della squadra</string>
+    <string name="main_form_equipments_hint_brand">Marchio della squadra</string>
+    <string name="main_form_equipments_hint_model">Modello di attrezzatura</string>
+    <string name="main_form_equipments_hint_direction">Gestione della squadra</string>
+    <string name="main_form_equipments_hint_location">Seleziona un\'posizione</string>
+
+    <string-array name="options_equipments">
+        <item>Seleziona un\'posizione</item>
+    </string-array>
+
+    //alert dialog equipo
+    <string name="main_dialog_equipment_delete_title">Elimina squadra</string>
+    <string name="main_dialog_equipment_delete_message">Vuoi rimuovere questa squadra?</string>
+
+    //Servicio revisión
+    <string-array name="options_revision">
+        <item>Seleziona un\'revisione</item>
+    </string-array>
 
 </resources>

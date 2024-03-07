@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.revision.FormRevisionActivity">
+    tools:context=".user.revisiones.RevisionServiceActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,16 +12,13 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_form_revisiones"
+            android:id="@+id/toolbar_service_revision"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary"
             app:titleTextColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/main_revision_title"/>
+            app:title="@string/main_form_revision_title"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,31 +36,36 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <EditText
-                        android:id="@+id/nombre_revision"
+                    <Spinner
+                        android:id="@+id/tipo_revision"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:hint="@string/main_form_revision_hint_name"
-                        android:inputType="text"/>
+                        android:textAlignment="center"
+                        android:entries="@array/options_revision"/>
 
-                    <EditText
-                        android:id="@+id/costo_revision"
+                    <Spinner
+                        android:id="@+id/equipo_revision"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:hint="@string/main_form_revision_hint_cost"
-                        android:inputType="number"/>
+                        android:textAlignment="center"
+                        android:entries="@array/options_equipments"/>
+
+
+                    <TextView
+                        android:id="@+id/precio_revision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:layout_marginTop="40dp"
+                        android:textSize="20dp"
+                        android:textAlignment="center"/>
+
 
                     <LinearLayout
                         android:id="@+id/buttonsAdd"
@@ -71,8 +73,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="70dp"
                         android:gravity="center"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
+                        android:orientation="horizontal">
 
                         <Button
                             android:id="@+id/btnAdd"
@@ -83,7 +84,7 @@
                             android:backgroundTint="@color/primary"
                             android:text="@string/add"
                             android:textColor="@color/white"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"/>
 
                         <Button
                             android:id="@+id/btnCancel"
@@ -94,38 +95,6 @@
                             android:backgroundTint="@color/secondary"
                             android:text="@string/cancel"
                             android:textColor="@color/white"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/buttonsEdit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="70dp"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
-
-                        <Button
-                            android:id="@+id/btnEdit"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/primary"
-                            android:text="@string/edit"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"/>
-
-                        <Button
-                            android:id="@+id/btnDelete"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
-                            android:backgroundTint="@color/red"
-                            android:text="@string/delete"
-                            android:textColor="@color/white"
                             android:textSize="18sp"/>
 
                     </LinearLayout>
@@ -135,7 +104,6 @@
             </ScrollView>
 
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
