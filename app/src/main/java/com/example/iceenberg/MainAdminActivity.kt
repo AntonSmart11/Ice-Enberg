@@ -7,12 +7,14 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.iceenberg.databinding.ActivityMainAdminBinding
 import android.view.Gravity
 import android.view.MenuItem
-import com.example.iceenberg.idiomas.IdiomasActivity
 import com.example.iceenberg.admin.instalacion.InstalacionActivity
 import com.example.iceenberg.admin.localizacion.LocalizacionActivity
 import com.example.iceenberg.admin.mantenimiento.MantenimientoActivity
+import com.example.iceenberg.admin.profile.ProfileAdminActivity
 import com.example.iceenberg.admin.revision.RevisionActivity
+import com.example.iceenberg.auth.LoginActivity
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -33,6 +35,10 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu)
 
+        //recibiendo parametros
+        val bundle = intent.extras
+        val email = bundle?.getString("email")
+
         val toggle = ActionBarDrawerToggle(
             this, binding.drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
@@ -42,8 +48,20 @@ class MainAdminActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         // Manejar clics en elementos del menú
         binding.navigationView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.menu_perfil -> {
+                    val userIntent = Intent(this, ProfileAdminActivity::class.java).apply {
+                        //pasar parametros
+                        putExtra("email", email)
+                    }
+                    startActivity(userIntent)
+                    true
+                }
                 R.id.cerrar_sesion -> {
-                    // Lógica para la opción 2
+                    FirebaseAuth.getInstance().signOut()
+                    val intent = Intent(this, LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    finish()
                     true
                 }
                 else -> false

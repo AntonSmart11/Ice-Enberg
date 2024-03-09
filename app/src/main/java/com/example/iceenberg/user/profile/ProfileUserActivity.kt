@@ -4,10 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.example.iceenberg.Controllers.InstallationController
 import com.example.iceenberg.Controllers.UserController
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.R
@@ -16,7 +14,7 @@ import com.example.iceenberg.databinding.ActivityProfileUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-class profileUserActivity : AppCompatActivity() {
+class ProfileUserActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileUserBinding
     private lateinit var dbHelper: DatabaseHelper
