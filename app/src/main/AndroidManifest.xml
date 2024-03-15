@@ -20,7 +20,10 @@
             android:name=".user.mantenimientos.MaintenanceServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".user.profile.profileUserActivity"
+            android:name=".admin.profile.ProfileAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".user.profile.ProfileUserActivity"
             android:exported="false" />
         <activity
             android:name=".auth.RegisterActivity"
