@@ -18,7 +18,7 @@ import com.example.iceenberg.user.revisiones.RevisionServiceActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
-class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainUserActivty : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainUserBinding
     private lateinit var dbHelper: DatabaseHelper
@@ -59,6 +59,7 @@ class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSele
                     val userIntent = Intent(this, ProfileUserActivity::class.java).apply {
                         //pasar parametros
                         putExtra("email", email)
+
                     }
                     startActivity(userIntent)
                     true
@@ -100,16 +101,5 @@ class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSele
             val intent = Intent(this, MaintenanceServiceActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    // Manejar clic en el botón de hamburguesa en la barra de acción
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                binding.drawerLayout.openDrawer(Gravity.LEFT)
-                return true
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
