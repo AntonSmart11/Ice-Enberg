@@ -9,7 +9,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.auth.LoginActivity
 import com.example.iceenberg.databinding.ActivityMainUserBinding
+import com.example.iceenberg.idiomas.IdiomasActivity
+import com.example.iceenberg.user.Instalaciones.InstallationServiceActivity
 import com.example.iceenberg.user.equipos.EquiposActivity
+import com.example.iceenberg.user.mantenimientos.MaintenanceServiceActivity
 import com.example.iceenberg.user.profile.ProfileUserActivity
 import com.example.iceenberg.user.revisiones.RevisionServiceActivity
 import com.google.android.material.navigation.NavigationView
@@ -85,6 +88,16 @@ class MainUserActivty : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         binding.revisionPage.setOnClickListener {
             val intent = Intent(this, RevisionServiceActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.instalacionPage.setOnClickListener {
+            val intent = Intent(this,InstallationServiceActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.mantenimientoPage.setOnClickListener {
+            val intent = Intent(this, MaintenanceServiceActivity::class.java)
             startActivity(intent)
         }
     }
