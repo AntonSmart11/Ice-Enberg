@@ -53,8 +53,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
-                        android:textAlignment="center"
-                        android:entries="@array/options_equipments"/>
+                        android:textAlignment="center"/>
 
                     <TextView
                         android:id="@+id/precio_mantenimiento"

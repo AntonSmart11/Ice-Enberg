@@ -13,7 +13,6 @@ import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.Objects.Revision
 import com.example.iceenberg.Objects.User
 import com.example.iceenberg.R
-import kotlin.coroutines.coroutineContext
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -403,6 +402,30 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         //Regresar si fue exitosa o no la inserción
         return result != -1
     }
+
+    //Obtener localización especifica
+    @SuppressLint("Range")
+    fun getSpecificLocation(locationName: String): Location? {
+        var location: Location? = null
+        val db = this.readableDatabase
+        val query = "SELECT * FROM $TABLE_LOCATIONS WHERE $NAME_LOCATIONS = ?"
+        val selectionArgs = arrayOf(locationName)
+        val cursor: Cursor = db.rawQuery(query, selectionArgs)
+
+        if (cursor.moveToFirst()) {
+            val id = cursor.getInt(cursor.getColumnIndex(ID_LOCATIONS))
+            val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+            val porcentaje = cursor.getInt(cursor.getColumnIndex(PERCENTAGE_LOCATIONS))
+
+            location = Location(id, nombre, porcentaje)
+        }
+
+        cursor.close()
+        db.close()
+
+        return location
+    }
+
 
     //Revisiones
 
