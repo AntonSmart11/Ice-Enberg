@@ -126,7 +126,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         val TABLE_SERVICES = ("CREATE TABLE " + TABLE_SERVICES + "(" +
                 ID_SERVICES + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                USER_SERVICES + " INTEGER," +
+                USER_SERVICES + " TEXT," +
                 EQUIPMENT_SERVICES + " INTEGER," +
                 TYPE_SERVICES + " TEXT," +
                 PRICE_SERVICES + " REAL," +
