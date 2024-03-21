@@ -1,10 +1,11 @@
 package com.example.iceenberg.auth
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.example.iceenberg.Global
 import com.example.iceenberg.MainAdminActivity
 import com.example.iceenberg.MainUserActivty
 import com.example.iceenberg.R
@@ -56,6 +57,8 @@ class LoginActivity : AppCompatActivity() {
         val userIntent = Intent(this, MainAdminActivity::class.java).apply {
             //pasar parametros
             putExtra("email", email)
+            //asignar el email como el id del usuario logueado
+            Global.usuarioCorreo = email;
         }
         startActivity(userIntent)
     }
@@ -63,6 +66,8 @@ class LoginActivity : AppCompatActivity() {
         val userIntent = Intent(this, MainUserActivty::class.java).apply {
             //pasar parametros
             putExtra("email", email)
+            //asignar el email como el id del usuario logueado
+            Global.usuarioCorreo = email;
         }
         startActivity(userIntent)
     }

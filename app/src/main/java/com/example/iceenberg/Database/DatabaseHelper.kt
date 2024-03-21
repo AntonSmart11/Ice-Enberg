@@ -11,6 +11,7 @@ import com.example.iceenberg.Objects.Installation
 import com.example.iceenberg.Objects.Location
 import com.example.iceenberg.Objects.Maintenance
 import com.example.iceenberg.Objects.Revision
+import com.example.iceenberg.Objects.Service
 import com.example.iceenberg.Objects.User
 import com.example.iceenberg.R
 
@@ -583,5 +584,25 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         return result != -1
     }
-}
 
+
+    //Servicios
+    //Obtener servicios
+
+
+    //Insertar servicios
+
+    fun insertServices(user_service:String ,equipment_service:Int,type_service:String,price: Int,finished : Int): Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(USER_SERVICES,user_service)
+        values.put(EQUIPMENT_SERVICES,equipment_service)
+        values.put(TYPE_SERVICES,type_service)
+        values.put(PRICE_SERVICES,price)
+        values.put(FINISHED_SERVICES,finished)
+
+        val result = db.insert(TABLE_SERVICES,null,values)
+
+        return result != -1L
+    }
+}
