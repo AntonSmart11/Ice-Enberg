@@ -160,5 +160,9 @@ class MaintenanceServiceActivity : AppCompatActivity() {
                 Toast.makeText(this, getString(R.string.empty), Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnCancel.setOnClickListener {
+            onBackPressed()
+        }
     }
 }
