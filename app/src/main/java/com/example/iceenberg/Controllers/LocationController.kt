@@ -20,4 +20,8 @@ class LocationController(private val dbHelper: DatabaseHelper) {
     fun deleteInstallation(id: Int) : Boolean {
         return dbHelper.deleteLocation(id)
     }
+
+    fun getSpecificLocation(locationName : String): Location? {
+        return dbHelper.getSpecificLocation(locationName)
+    }
 }
