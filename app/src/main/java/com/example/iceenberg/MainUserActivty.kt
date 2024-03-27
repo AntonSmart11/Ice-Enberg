@@ -1,21 +1,18 @@
 package com.example.iceenberg
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
-import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.iceenberg.Database.DatabaseHelper
 import com.example.iceenberg.auth.LoginActivity
 import com.example.iceenberg.databinding.ActivityMainUserBinding
-import com.example.iceenberg.idiomas.IdiomasActivity
 import com.example.iceenberg.user.Instalaciones.InstallationServiceActivity
+import com.example.iceenberg.user.Servicios.ServiceActivity
 import com.example.iceenberg.user.equipos.EquiposActivity
 import com.example.iceenberg.user.mantenimientos.MaintenanceServiceActivity
 import com.example.iceenberg.user.profile.ProfileUserActivity
 import com.example.iceenberg.user.revisiones.RevisionServiceActivity
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class MainUserActivty : AppCompatActivity() {
@@ -99,6 +96,11 @@ class MainUserActivty : AppCompatActivity() {
 
         binding.mantenimientoPage.setOnClickListener {
             val intent = Intent(this, MaintenanceServiceActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.servicesPage.setOnClickListener {
+            val intent = Intent(this,ServiceActivity::class.java)
             startActivity(intent)
         }
     }

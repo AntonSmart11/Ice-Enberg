@@ -159,6 +159,24 @@
     <string name="main_dialog_equipment_delete_title">Elimina squadra</string>
     <string name="main_dialog_equipment_delete_message">Vuoi rimuovere questa squadra?</string>
 
+
+
+    //Página Principal servicios
+    <string name="main_service_title">Servizio</string>
+
+    //Página formulario servicios
+    <string name="main_form_service_title">Servizio</string>
+    <string name="main_form_service_equipment_name">Squadra</string>
+    <string name="main_form_service_status">Stato</string>
+    <string name="main_form_service_status_process">In corso</string>
+    <string name="main_form_service_status_finish">Finito</string>
+
+    //alert dialog mantenimientos
+    <string name="main_dialog_service_delete_title">Elimina Servizio</string>
+    <string name="main_dialog_service_delete_message">Vuoi rimuovere questa Servizio?</string>
+
+
+
     //Servicio revisión
     <string-array name="options_revision">
         <item>Seleziona un\'revisione</item>

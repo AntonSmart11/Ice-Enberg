@@ -544,6 +544,38 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return equipments
     }
 
+
+    @SuppressLint("Range")
+    fun getSpecificEquipment(equipmentId: Int): Equipments? {
+        val db = this.readableDatabase
+
+        // Usamos la cláusula WHERE en la consulta SQL para filtrar por ID
+        val query = "SELECT * FROM $TABLE_EQUIPMENT WHERE $ID_EQUIPMENT = ?"
+        val cursor: Cursor = db.rawQuery(query, arrayOf(equipmentId.toString()))
+
+        var equipment: Equipments? = null
+
+        if (cursor.moveToFirst()) {
+            val id = cursor.getInt(cursor.getColumnIndex(ID_EQUIPMENT))
+            val user = cursor.getInt(cursor.getColumnIndex(USER_EQUIPMENT))
+            // Asegúrate de que NAME_LOCATIONS sea el nombre correcto de la columna para el nombre del equipo,
+            // podría ser que haya un error y debería ser NAME_EQUIPMENT o algo similar.
+            val nombre = cursor.getString(cursor.getColumnIndex(NAME_LOCATIONS))
+            val localizacion = cursor.getString(cursor.getColumnIndex(LOCATION_EQUIPMENT))
+            val direccion = cursor.getString(cursor.getColumnIndex(DIRECTION_EQUIPMENT))
+            val marca = cursor.getString(cursor.getColumnIndex(BRAND_EQUIPMENT))
+            val modelo = cursor.getString(cursor.getColumnIndex(MODEL_EQUIPMENT))
+
+            equipment = Equipments(id, user, nombre, localizacion, direccion, marca, modelo)
+        }
+
+        cursor.close()
+        db.close()
+
+        return equipment
+    }
+
+
     //insertar revisiones
     fun insertEquipments(equipments: Equipments) : Boolean {
         val db = this.writableDatabase
@@ -588,7 +620,32 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     //Servicios
     //Obtener servicios
+    @SuppressLint("Range")
+    fun getUserServices(user: String) : MutableList<Service> {
+        val services = mutableListOf<Service>()
+        val db = this.readableDatabase
 
+        val query = "SELECT * FROM $TABLE_SERVICES WHERE $USER_SERVICES = ?"
+        val cursor: Cursor = db.rawQuery(query, arrayOf(user))
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex(ID_SERVICES))
+                val user = cursor.getString(cursor.getColumnIndex(USER_SERVICES))
+                val equipment = cursor.getInt(cursor.getColumnIndex(EQUIPMENT_SERVICES))
+                val service = cursor.getString(cursor.getColumnIndex(TYPE_SERVICES))
+                val cost = cursor.getInt(cursor.getColumnIndex(PRICE_SERVICES))
+                val finished = cursor.getInt(cursor.getColumnIndex(FINISHED_SERVICES))
+
+                services.add(Service(id, user, equipment, service, cost, finished))
+            } while (cursor.moveToNext())
+        }
+
+        cursor.close()
+        db.close()
+
+        return services
+    }
 
     //Insertar servicios
 
@@ -604,5 +661,15 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val result = db.insert(TABLE_SERVICES,null,values)
 
         return result != -1L
+    }
+
+
+    fun deleteService(id: Int) : Boolean {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(ID_SERVICES, id)
+        val result = db.delete(TABLE_SERVICES, ID_SERVICES + "=" + id, null)
+
+        return result != -1
     }
 }
