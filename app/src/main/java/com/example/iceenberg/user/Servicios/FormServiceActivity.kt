@@ -87,6 +87,7 @@ class FormServiceActivity : AppCompatActivity() {
                 dialog.dismiss()
             }
 
+
             builder.setPositiveButton(getString(R.string.delete)){dialog, which ->
                 val eliminacion = serviceController.deleteService(id)
                 if(eliminacion) {
