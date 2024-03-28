@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.iceenberg.Objects.Equipments
 import com.example.iceenberg.R
 
-class EquipmentAdapter(private val equipments: MutableList<Equipments>, private val itemClickListener: OnItemClickListener) : RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder>() {
+class EquipmentAdapter(private val equipments: MutableList<Equipments>, private val itemClickListener: OnItemClickListener)
+    : RecyclerView.Adapter<EquipmentAdapter.EquipmentViewHolder>() {
 
     inner class EquipmentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombreTextView: TextView = itemView.findViewById(R.id.nombreLocationTextView)

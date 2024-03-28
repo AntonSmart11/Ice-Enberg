@@ -157,6 +157,21 @@
     <string name="main_dialog_equipment_delete_title">Eliminar Equipo</string>
     <string name="main_dialog_equipment_delete_message">¿Desea eliminar este equipo?</string>
 
+    //Página Principal servicios
+    <string name="main_service_title">Servicio</string>
+
+    //Página formulario servicios
+    <string name="main_form_service_title">Servicio</string>
+    <string name="main_form_service_equipment_name">Equipo</string>
+    <string name="main_form_service_status">Estado</string>
+    <string name="main_form_service_status_process">En proceso</string>
+    <string name="main_form_service_status_finish">Finalizado</string>
+
+    //alert dialog mantenimientos
+    <string name="main_dialog_service_delete_title">Eliminar Servicio</string>
+    <string name="main_dialog_service_delete_message">¿Desea eliminar este servicio?</string>
+
+
     //Servicio revisión
     <string-array name="options_revision">
         <item>Selecciona una revisión</item>
